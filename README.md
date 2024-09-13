@@ -1,4 +1,5 @@
 ![Kromatika colors](https://github.com/michael-andreuzza/kromatika/blob/main/images/kromatika.png?raw=true)
+
 # Kromatika Color Library
 
 Kromatika is a comprehensive color library that provides a wide range of color palettes for use in your web projects. This library includes colors organized by categories, making it easy to maintain a consistent color scheme throughout your application.
@@ -8,16 +9,25 @@ Kromatika is a comprehensive color library that provides a wide range of color p
 To use the Kromatika color library in your project, follow these steps:
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/michael-andreuzza/kromatika.git
    cd kromatika
    ```
 
-2. **Install Dependencies** (if applicable):
-   If you are using a package manager like npm or yarn, you can install any necessary dependencies. For example:
-   ```bash
-   npm install
-   ```
+2. **Install Dependencies**
+   To get started with Kromatika, you need to install the package and any necessary dependencies. If you are using npm, you can install Kromatika with:
+
+
+NPM
+
+```bash
+npm install kromatika
+```
+Yarn
+```bash
+yarn add kromatika
+```
 
 ## Usage
 
@@ -28,6 +38,7 @@ You can import the colors into your JavaScript, JSON, SCSS and CSS files as need
 #### JavaScript
 
 To use the colors in your JavaScript files, you can import the `colors` object from `index.js`:
+
 ```js
 const colors = require('./index.js');
 // EXample usage:
@@ -38,6 +49,7 @@ console.log(colors.black); // Outputs the hex color code for black
 To use the colors in your JSON files, you can import the `colors` object from `colors.json`:
 
 ```
+
 ```json
 {
   "black": [
@@ -71,22 +83,23 @@ To use the colors in your JSON files, you can import the `colors` object from `c
 #### SCSS
 
 To use the colors in your SCSS files, you can import the `colors.scss` file:
+
 ```scss
-@import './colors.scss';
+@import "./colors.scss";
 // EXample usage:
 body {
-    background-color: var(--black-50);
-    color: var(--white);
+  background-color: var(--black-50);
+  color: var(--white);
 }
 ```
 
 #### CSS
+
 ```css
 body {
-    background-color: var(--black-50); /* Using a black shade */
+  background-color: var(--black-50); /* Using a black shade */
 }
 ```
-
 
 ### Available Colors
 
@@ -112,11 +125,12 @@ The color library includes the following categories:
 #### Example Usage in CSS
 
 ```css
-body { background-color: var(--black-50); } /* Using a black shade */
+body {
+  background-color: var(--black-50);
+} /* Using a black shade */
 ```
 
 #### Example JSON Structure
-
 
 ### Customization
 
