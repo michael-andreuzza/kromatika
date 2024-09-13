@@ -1,3 +1,4 @@
+![Kromatika colors](https://github.com/michael-andreuzza/kromatika/blob/main/kromatika.png?raw=true)
 # Kromatika Color Library
 
 Kromatika is a comprehensive color library that provides a wide range of color palettes for use in your web projects. This library includes colors organized by categories, making it easy to maintain a consistent color scheme throughout your application.
@@ -120,7 +121,7 @@ This allows you to tailor the color palette to fit your project's branding and d
 
 ## License
 
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License.
 
 ## Contributing
 
