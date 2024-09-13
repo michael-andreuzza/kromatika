@@ -8,7 +8,7 @@ To use the Kromatika color library in your project, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/kromatika.git
+   git clone https://github.com/michael-andreuzza/kromatika.git
    cd kromatika
    ```
 
@@ -22,7 +22,7 @@ To use the Kromatika color library in your project, follow these steps:
 
 ### Importing Colors
 
-You can import the colors into your JavaScript or SCSS files as needed.
+You can import the colors into your JavaScript, JSON, SCSS and CSS files as needed.
 
 #### JavaScript
 
@@ -32,19 +32,54 @@ const colors = require('./index.js');
 // EXample usage:
 console.log(colors.black); // Outputs the hex color code for black
 ```
+```json
+{
+  "black": [
+    "#E7E7E9",
+    "#CFCFD3",
+    "#A0A0A7",
+    "#71717A",
+    "#45454A",
+    "#18181A",
+    "#141415",
+    "#0F0F10",
+    "#0A0A0B",
+    "#050505"
+  ],
+  "metal": [
+    "#F3F4F7",
+    "#E2E4EB",
+    "#CCD0DC",
+    "#B3BACB",
+    "#9BA4BA",
+    "#828DA9",
+    "#626E8E",
+    "#49526A",
+    "#303646",
+    "#191C24"
+  ]
+  // Add more color categories as needed
+}
+```
 
 #### SCSS
 
 To use the colors in your SCSS files, you can import the `colors.scss` file:
-```
+```scss
 @import './colors.scss';
 // EXample usage:
 body {
     background-color: var(--black-50);
     color: var(--white);
 }
+```
 
 ### CSS
+```css
+body {
+    background-color: var(--black-50); /* Using a black shade */
+}
+```
 
 
 ### Available Colors
@@ -76,43 +111,16 @@ body { background-color: var(--black-50); } /* Using a black shade */
 
 #### Example JSON Structure
 
-```json
-{
-  "black": [
-    "#E7E7E9",
-    "#CFCFD3",
-    "#A0A0A7",
-    "#71717A",
-    "#45454A",
-    "#18181A",
-    "#141415",
-    "#0F0F10",
-    "#0A0A0B",
-    "#050505"
-  ],
-  "metal": [
-    "#F3F4F7",
-    "#E2E4EB",
-    "#CCD0DC",
-    "#B3BACB",
-    "#9BA4BA",
-    "#828DA9",
-    "#626E8E",
-    "#49526A",
-    "#303646",
-    "#191C24"
-  ]
-  // Add more color categories as needed
-}
-```
+
 
 ### Customization
 
-You can easily customize the colors by modifying the values in the `colors.json` file or directly in the `index.js` and `colors.scss` files. This allows you to tailor the color palette to fit your project's branding and design requirements.
+You can easily customize the colors by modifying the values in the `colors.json` file or directly in the `index.js`, `colors.scss` and `colors.css` files.
+This allows you to tailor the color palette to fit your project's branding and design requirements.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. 
 
 ## Contributing
 
