@@ -32,6 +32,11 @@ To use the colors in your JavaScript files, you can import the `colors` object f
 const colors = require('./index.js');
 // EXample usage:
 console.log(colors.black); // Outputs the hex color code for black
+
+#### JSON
+
+To use the colors in your JSON files, you can import the `colors` object from `colors.json`:
+
 ```
 ```json
 {
@@ -75,7 +80,7 @@ body {
 }
 ```
 
-### CSS
+#### CSS
 ```css
 body {
     background-color: var(--black-50); /* Using a black shade */
@@ -113,20 +118,22 @@ body { background-color: var(--black-50); } /* Using a black shade */
 #### Example JSON Structure
 
 
-
 ### Customization
 
-You can easily customize the colors by modifying the values in the `colors.json` file or directly in the `index.js`, `colors.scss` and `colors.css` files.
-This allows you to tailor the color palette to fit your project's branding and design requirements.
+You can easily customize the colors by modifying the values in the `colors.json` file, or directly in the `index.js`, `colors.scss`, and `colors.css` files. This flexibility allows you to tailor the color palette to fit your project's branding and design requirements.
 
-## License
+### License
 
 This project is licensed under the MIT License.
 
-## Contributing
+### Contributing
 
 Contributions are welcome! If you have suggestions for improvements or new color palettes, feel free to open an issue or submit a pull request.
 
-## Acknowledgments
+### Acknowledgments
 
-Thank you for using Kromatika! We hope this color library enhances your project and makes your design process smoother.
+Thank you for using Kromatika! We hope this color library enhances your project and streamlines your design process.
+
+### Author
+
+[Michael Andreuzza](https://michaelandreuzza.com)
