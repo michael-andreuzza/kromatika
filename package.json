@@ -1,0 +1,17 @@
+{
+  "name": "kromatika",
+  "version": "1.0.0",
+  "description": "An elegant color palette for user interfaces",
+  "main": "index.js",
+  "keywords": [
+    "colors",
+    "color palette",
+    "design",
+    "user interface"
+  ],
+  "author": "Michael Andreuzza",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
