@@ -1,6 +1,6 @@
 {
   "name": "kromatika",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "An elegant color palette for user interfaces",
   "main": "index.js",
   "keywords": [
