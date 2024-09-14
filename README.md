@@ -138,7 +138,7 @@ body {
 
 The color library includes the following categories:
 
-- **charcoal**: A range of shades of charcoal.
+- **Charcoal**: A range of shades of charcoal.
 - **Metal Shades**: A range of metallic colors.
 - **Haiti Shades**: Soft, muted colors inspired by the Haitian palette.
 - **Purple Shades**: A variety of purple tones.
