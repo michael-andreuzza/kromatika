@@ -18,13 +18,14 @@ To use the Kromatika color library in your project, follow these steps:
 2. **Install Dependencies**
    To get started with Kromatika, you need to install the package and any necessary dependencies. If you are using npm, you can install Kromatika with:
 
-
 NPM
 
 ```bash
 npm install kromatika
 ```
+
 Yarn
+
 ```bash
 yarn add kromatika
 ```
@@ -52,7 +53,6 @@ To use the colors in your JSON files, you can import the `colors` object from `c
 
 ```json
 {
-
   "metal": [
     "#F3F4F7",
     "#E2E4EB",
@@ -68,8 +68,11 @@ To use the colors in your JSON files, you can import the `colors` object from `c
   // Add more color categories as needed
 }
 ```
+
 #### YAML
+
 To use the colors in your YAML files, you can import the `colors.yml` file:
+
 ```yaml
 metal:
   - "#F3F4F7"
@@ -93,11 +96,13 @@ To use the colors in your SCSS files, you can import the `colors.scss` file:
 @import "./colors.scss";
 // EXample usage:
 body {
-  background-color: var(--black-50);
+  background-color: var(--kr-charcoal-50);
   color: var(--white);
 }
 ```
+
 #### LESS
+
 To use the colors in your LESS files, you can import the colors.less file:
 
 ```less
@@ -108,8 +113,11 @@ body {
   color: @white;
 }
 ```
+
 #### Stylus
+
 To use the colors in your Stylus files, you can import the colors.styl file:
+
 ```stylus
 @import "~kromatika/colors.styl"
 // Example usage:
@@ -122,7 +130,7 @@ body
 
 ```css
 body {
-  background-color: var(--black-50); /* Using a black shade */
+  background-color: var(--kr-charcoal-50); /* Using a black shade */
 }
 ```
 
@@ -130,12 +138,12 @@ body {
 
 The color library includes the following categories:
 
-- **Black Shades**: Various shades of black.
+- **charcoal**: A range of shades of charcoal.
 - **Metal Shades**: A range of metallic colors.
 - **Haiti Shades**: Soft, muted colors inspired by the Haitian palette.
 - **Purple Shades**: A variety of purple tones.
 - **Blue Berry Shades**: Fresh and vibrant blue shades.
-- **Royal Blue Shades**: Rich and deep blue colors.
+- **Blue Shades**: Rich and deep blue colors.
 - **Sky Shades**: Light and airy sky colors.
 - **Turquoise Shades**: Bright and refreshing turquoise tones.
 - **Persian Green Shades**: Elegant green shades.
@@ -146,16 +154,6 @@ The color library includes the following categories:
 - **Red Shades**: Bold and vibrant red colors.
 - **Raspberry Shades**: Sweet and rich raspberry tones.
 - **Fuchsia Shades**: Bright and lively fuchsia colors.
-
-#### Example Usage in CSS
-
-```css
-body {
-  background-color: var(--black-50);
-} /* Using a black shade */
-```
-
-#### Example JSON Structure
 
 ### Customization
 
