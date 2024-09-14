@@ -3,7 +3,6 @@ const colors = {
   white: "#ffffff",
   // Black
   black: "#000000",
-
   // Charcoal
   charcoal: [
     "#F5F5F7",
@@ -19,16 +18,16 @@ const colors = {
   ],
   // Metal Shades
   metal: [
-    "#F3F4F7",
-    "#E2E4EB",
-    "#CCD0DC",
-    "#B3BACB",
-    "#9BA4BA",
-    "#828DA9",
-    "#626E8E",
-    "#49526A",
-    "#303646",
-    "#191C24",
+    "#F4F5F7",
+    "#E4E6EB",
+    "#CACED9",
+    "#B0B5C5",
+    "#969CAC",
+    "#7C8292",
+    "#616678",
+    "#4B4F5C",
+    "#353841",
+    "#1F2129",
   ],
   // Haiti Shades
   haiti: [

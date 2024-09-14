@@ -1,6 +1,6 @@
 {
   "name": "kromatika",
-  "version": "1.7.0",
+  "version": "1.9.0",
   "description": "An elegant color palette for user interfaces",
   "main": "index.js",
   "keywords": [
@@ -11,7 +11,11 @@
   ],
   "author": "Michael Andreuzza",
   "license": "MIT",
-  "homepage": "https://www.npmjs.com/package/kromatika",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michael-andreuzza/kromatika.git"
+    },
+  "homepage": "https://michaelandreuzza.com/work/kromatika/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
