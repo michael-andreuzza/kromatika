@@ -10,10 +10,10 @@ To use the Kromatika color library in your project, follow these steps:
 
 1. **Clone the Repository**:
 
-   ```bash
-   git clone https://github.com/michael-andreuzza/kromatika.git
-   cd kromatika
-   ```
+```bash
+git clone https://github.com/michael-andreuzza/kromatika.git
+cd kromatika
+```
 
 2. **Install Dependencies**
    To get started with Kromatika, you need to install the package and any necessary dependencies. If you are using npm, you can install Kromatika with:
