@@ -52,18 +52,7 @@ To use the colors in your JSON files, you can import the `colors` object from `c
 
 ```json
 {
-  "black": [
-    "#E7E7E9",
-    "#CFCFD3",
-    "#A0A0A7",
-    "#71717A",
-    "#45454A",
-    "#18181A",
-    "#141415",
-    "#0F0F10",
-    "#0A0A0B",
-    "#050505"
-  ],
+
   "metal": [
     "#F3F4F7",
     "#E2E4EB",
@@ -79,6 +68,22 @@ To use the colors in your JSON files, you can import the `colors` object from `c
   // Add more color categories as needed
 }
 ```
+#### YAML
+To use the colors in your YAML files, you can import the `colors.yml` file:
+```yaml
+metal:
+  - "#F3F4F7"
+  - "#E2E4EB"
+  - "#CCD0DC"
+  - "#B3BACB"
+  - "#9BA4BA"
+  - "#828DA9"
+  - "#626E8E"
+  - "#49526A"
+  - "#303646"
+  - "#191C24"
+# Add more color categories as needed
+```
 
 #### SCSS
 
@@ -91,6 +96,26 @@ body {
   background-color: var(--black-50);
   color: var(--white);
 }
+```
+#### LESS
+To use the colors in your LESS files, you can import the colors.less file:
+
+```less
+@import "~kromatika/colors.less";
+// Example usage:
+body {
+  background-color: @black-50;
+  color: @white;
+}
+```
+#### Stylus
+To use the colors in your Stylus files, you can import the colors.styl file:
+```stylus
+@import "~kromatika/colors.styl"
+// Example usage:
+body
+  background-color: $black-50
+  color: $white
 ```
 
 #### CSS

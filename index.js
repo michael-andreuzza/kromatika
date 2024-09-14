@@ -1,18 +1,22 @@
 const colors = {
-  // Black Shades
-  black: [
-    "#E7E7E9",
-    "#CFCFD3",
-    "#A0A0A7",
-    "#71717A",
-    "#45454A",
-    "#18181A",
-    "#141415",
-    "#0F0F10",
-    "#0A0A0B",
-    "#050505"
-  ],
+  // White
+  white: "#ffffff",
+  // Black
+  black: "#000000",
 
+  // Charcoal
+  charcoal: [
+    "#F5F5F7",
+    "#E5E5E8",
+    "#C2C2C6",
+    "#A0A0A2",
+    "#7D7D80",
+    "#5C5C5E",
+    "#404041",
+    "#292929",
+    "#1A1A1A",
+    "#141414",
+  ],
   // Metal Shades
   metal: [
     "#F3F4F7",
@@ -24,9 +28,8 @@ const colors = {
     "#626E8E",
     "#49526A",
     "#303646",
-    "#191C24"
+    "#191C24",
   ],
-
   // Haiti Shades
   haiti: [
     "#F4F2F8",
@@ -38,9 +41,8 @@ const colors = {
     "#3F395C",
     "#29244A",
     "#1A153D",
-    "#151131"
+    "#151131",
   ],
-
   // Purple Shades
   purple: [
     "#E6E1FE",
@@ -52,9 +54,8 @@ const colors = {
     "#4034AB",
     "#2A218A",
     "#1B1472",
-    "#15105B"
+    "#15105B",
   ],
-
   // Blue Berry Shades
   blueBerry: [
     "#DFE8FF",
@@ -66,23 +67,21 @@ const colors = {
     "#2F46B7",
     "#1E2F93",
     "#121F7A",
-    "#0E1862"
+    "#0E1862",
   ],
-
-  // Royal Blue Shades
-  royalBlue: [
-    "#D9E6FD",
-    "#B4CBFC",
-    "#8DACF6",
-    "#6E91EC",
-    "#4169E1",
-    "#2F50C1",
-    "#203AA2",
-    "#142782",
-    "#0C1A6C",
-    "#0A1557"
+  //  Blue Shades
+  blue: [
+    "#E3F0FE",
+    "#BBDDFD",
+    "#8EC9FC",
+    "#61B5FB",
+    "#3DA5FA",
+    "#1D7EF8",
+    "#176ADA",
+    "#1356BC",
+    "#0F439E",
+    "#0A3380",
   ],
-
   // Sky Shades
   sky: [
     "#CEFDFE",
@@ -94,9 +93,8 @@ const colors = {
     "#0569B6",
     "#034A93",
     "#023579",
-    "#022A5F"
+    "#022A5F",
   ],
-
   // Turquoise Shades
   turquoise: [
     "#CCFDF3",
@@ -108,9 +106,8 @@ const colors = {
     "#0475A1",
     "#025481",
     "#013D6B",
-    "#013156"
+    "#013156",
   ],
-
   // Persian Green Shades
   persianGreen: [
     "#CAFAE4",
@@ -122,9 +119,8 @@ const colors = {
     "#036A73",
     "#014D5D",
     "#01384D",
-    "#012C3C"
+    "#012C3C",
   ],
-
   // Pastel Green Shades
   pastelGreen: [
     "#D2FBD0",
@@ -136,9 +132,8 @@ const colors = {
     "#0E8450",
     "#086A49",
     "#055843",
-    "#044837"
+    "#044837",
   ],
-
   // Grass Shades
   grass: [
     "#E3FAD6",
@@ -150,9 +145,8 @@ const colors = {
     "#167625",
     "#0E5F21",
     "#084F1F",
-    "#074119"
+    "#074119",
   ],
-
   // Carrot Shades
   carrot: [
     "#FFF3D5",
@@ -164,9 +158,8 @@ const colors = {
     "#B75F17",
     "#93450E",
     "#7A3108",
-    "#602706"
+    "#602706",
   ],
-
   // Orange Shades
   orange: [
     "#FFEAD2",
@@ -178,9 +171,8 @@ const colors = {
     "#B72111",
     "#930E0A",
     "#7A060B",
-    "#610509"
+    "#610509",
   ],
-
   // Red Shades
   red: [
     "#FEE3D4",
@@ -192,9 +184,8 @@ const colors = {
     "#AF1631",
     "#8D0E2F",
     "#75082E",
-    "#5F0726"
+    "#5F0726",
   ],
-
   // Raspberry Shades
   raspberry: [
     "#FED9D5",
@@ -206,9 +197,8 @@ const colors = {
     "#B31865",
     "#900F5C",
     "#770955",
-    "#5F0743"
+    "#5F0743",
   ],
-
   // Fuchsia Shades
   fuchsia: [
     "#FECCEC",
@@ -220,9 +210,8 @@ const colors = {
     "#9800B6",
     "#6E0093",
     "#500079",
-    "#410061"
-  ]
+    "#410061",
+  ],
 };
-
 // Export the colors object so it can be imported by developers
 module.exports = colors;
