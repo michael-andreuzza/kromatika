@@ -4,6 +4,8 @@
 
 Kromatika is a comprehensive color library that provides a wide range of color palettes for use in your web projects. This library includes colors organized by categories, making it easy to maintain a consistent color scheme throughout your application.
 
+[Kromatika](https://www.npmjs.com/package/kromatika)
+
 ## Installation
 
 To use the Kromatika color library in your project, follow these steps:
