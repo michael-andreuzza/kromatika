@@ -95,7 +95,7 @@ metal:
 To use the colors in your SCSS files, you can import the `colors.scss` file:
 
 ```scss
-@import "./colors.scss";
+@import "kromatika/colors.scss";
 // EXample usage:
 body {
   background-color: var(--kr-charcoal-50);
@@ -131,6 +131,8 @@ body
 #### CSS
 
 ```css
+@import "kromatika/colors.css";
+// Example usage:
 body {
   background-color: var(--kr-charcoal-50); /* Using a black shade */
 }
