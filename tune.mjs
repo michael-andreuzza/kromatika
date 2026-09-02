@@ -1,12 +1,17 @@
 // Normalises colors.json so every scale follows the same lightness curve.
 //
-// For each scale: hue is fixed to the scale's chroma-weighted mean hue, the
-// per-step chroma profile is kept, lightness is snapped to a shared OKLCH curve, and
-// the result is clipped into sRGB by reducing chroma. Near-neutral scales
-// (low chroma) get a wider curve so they can go nearly black, like every
-// major palette does with its grays.
+// For each scale: each shade keeps its own hue and chroma, and lightness is
+// snapped to a shared OKLCH curve, then clipped into sRGB by reducing chroma.
+// Near-neutral scales (low chroma) get a wider curve so they can go nearly
+// black, like every major palette does with its grays.
 //
-// Usage: node tune.mjs [--dry]  (prints a diff; --dry does not write)
+// Hue is deliberately left alone: the hand-picked drift inside a scale (sky
+// running from cyan tints to navy darks, carrot from yellow to amber) is part
+// of the palette's character, and it has no effect on contrast.
+//
+// Usage: node tune.mjs [--dry] [--fix-hue]
+//   --dry      print the diff, do not write colors.json
+//   --fix-hue  also lock every shade to the scale's chroma-weighted mean hue
 
 import { readFileSync, writeFileSync } from "node:fs";
 
@@ -65,6 +70,7 @@ function toHex(color) {
 
 /* ---- tune ---- */
 
+const FIX_HUE = process.argv.includes("--fix-hue");
 const src = JSON.parse(readFileSync(new URL("./colors.json", import.meta.url), "utf8"));
 const out = {};
 const report = [];
@@ -77,7 +83,7 @@ for (const [name, value] of Object.entries(src)) {
   const neutral = maxC < NEUTRAL_MAX_CHROMA;
   const gray = maxC < GRAY_MAX_CHROMA;
   const curve = neutral ? NEUTRAL : CHROMATIC;
-  // The scale's identity hue: mean hue weighted by chroma, so the vivid
+  // For --fix-hue: the scale's identity hue, weighted by chroma so the vivid
   // middle shades count more than the washed-out ends.
   let x = 0, y = 0;
   for (const c of shades) { x += c.C * Math.cos((c.H * Math.PI) / 180); y += c.C * Math.sin((c.H * Math.PI) / 180); }
@@ -89,7 +95,7 @@ for (const [name, value] of Object.entries(src)) {
     const hex = toHex({
       L: curve[i],
       C: orig.C,
-      H: gray ? orig.H : anchorHue,
+      H: FIX_HUE && !gray ? anchorHue : orig.H,
     });
     out[name][step] = hex;
     report.push([name, step, value[step], hex]);

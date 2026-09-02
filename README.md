@@ -119,7 +119,7 @@ import { colors } from "kromatika";        // ESM
 const { colors } = require("kromatika");   // CommonJS
 
 colors.charcoal[500];     // "#69696b"
-colors.blueBerry[300];    // "#91adff"
+colors.blueBerry[300];    // "#93adff"
 colors.white;             // "#ffffff"
 ```
 
@@ -132,8 +132,8 @@ included.
 {
   "white": "#ffffff",
   "black": "#000000",
-  "charcoal": { "50": "#f5f5f7", "100": "#e5e5e8", "…": "…", "900": "#141414" },
-  "blue berry": { "50": "#dfe8ff", "…": "…" }
+  "charcoal": { "50": "#f5f5f7", "100": "#e4e4e7", "…": "…", "900": "#141414" },
+  "blue berry": { "50": "#ecf2ff", "…": "…" }
 }
 ```
 
@@ -176,7 +176,7 @@ body
 ```yaml
 kr-charcoal:
   50: "#f5f5f7"
-  100: "#e5e5e8"
+  100: "#e4e4e7"
   # …
   900: "#141414"
 ```
@@ -213,12 +213,12 @@ scales share one OKLCH lightness curve, and the three near-neutrals
 | Chromatic L | .96 | .91 | .84 | .76 | .67 | .58 | .49 | .41 | .35 | .30 |
 | Neutral L | .97 | .92 | .84 | .74 | .63 | .52 | .42 | .33 | .25 | .19 |
 
-Each scale holds a single hue from 50 to 900, so tints and shades of blue
-berry are still blue berry, and chroma is clipped into sRGB rather than
-letting the hue drift. In practice this means: swap `blue-berry` for
-`raspberry` and every contrast pairing in your UI still holds, and the
-`--kr-on-*` thresholds line up (white text passes from 500 or 600 on every
-scale).
+Hue and chroma are hand-picked per shade and left alone; only lightness is
+normalised. That keeps the character of each scale (sky runs from cyan tints
+to navy darks, carrot from yellow to amber) while making the numbers
+dependable: swap `blue-berry` for `raspberry` and every contrast pairing in
+your UI still holds, and the `--kr-on-*` thresholds line up (white text
+passes from 500 or 600 on every scale).
 
 ## Customizing
 
@@ -241,11 +241,10 @@ curves described above (it rewrites `colors.json`; `--dry` only prints).
   in `@theme`, with white/black included and corrected charcoal values.
 - **JSON:** the `{ "kromatika": [ { "name", "colors" } ] }` wrapper is gone;
   it's now a flat map of scale → shades.
-- **Hex values have changed.** 2.0 retunes every scale onto a shared
-  lightness curve with a fixed hue per scale (see above). Shades are close to
-  their 1.x counterparts, but not identical; the light tints of sky,
-  turquoise and persian green are the most noticeable, since 1.x let them
-  drift toward cyan.
+- **Hex values have changed.** 2.0 snaps every scale onto a shared lightness
+  curve (see above). Hues are the same as 1.x, so everything still looks like
+  Kromatika, but shades are slightly lighter or darker than before; the
+  middle of carrot and the dark end of metal move the most.
 
 ## License
 
