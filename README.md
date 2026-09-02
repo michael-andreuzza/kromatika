@@ -70,7 +70,7 @@ Which text color goes on `blue-berry-400`? Kromatika answers for every shade:
 import { colors, on, contrast } from "kromatika";
 
 on.blueBerry[400];        // "#000000"
-contrast.blueBerry[400];  // { white: 3.46, black: 6.07 }
+contrast.blueBerry[400];  // { white: 3.08, black: 6.81 }
 ```
 
 The full table, with AA thresholds per scale, is in
@@ -118,8 +118,8 @@ module.exports = {
 import { colors } from "kromatika";        // ESM
 const { colors } = require("kromatika");   // CommonJS
 
-colors.charcoal[500];     // "#5c5c5e"
-colors.blueBerry[300];    // "#87a3ff"
+colors.charcoal[500];     // "#69696b"
+colors.blueBerry[300];    // "#91adff"
 colors.white;             // "#ffffff"
 ```
 
@@ -202,12 +202,33 @@ kr-charcoal:
 | Raspberry | Pink-red |
 | Fuchsia | Magenta |
 
+## How the shades are tuned
+
+The same shade number means the same thing in every scale. All 13 chromatic
+scales share one OKLCH lightness curve, and the three near-neutrals
+(charcoal, metal, haiti) share a wider one so they can go nearly black:
+
+| Shade | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Chromatic L | .96 | .91 | .84 | .76 | .67 | .58 | .49 | .41 | .35 | .30 |
+| Neutral L | .97 | .92 | .84 | .74 | .63 | .52 | .42 | .33 | .25 | .19 |
+
+Each scale holds a single hue from 50 to 900, so tints and shades of blue
+berry are still blue berry, and chroma is clipped into sRGB rather than
+letting the hue drift. In practice this means: swap `blue-berry` for
+`raspberry` and every contrast pairing in your UI still holds, and the
+`--kr-on-*` thresholds line up (white text passes from 500 or 600 on every
+scale).
+
 ## Customizing
 
 Edit `colors.json`, then run `npm run build` to regenerate every other
 format. `build.mjs` has no dependencies; it converts hex to OKLCH for the
 Tailwind v4 theme, computes the contrast data, and emits the semantic theme
 and design tokens.
+
+If you add or change a scale, `node tune.mjs` snaps it onto the shared
+curves described above (it rewrites `colors.json`; `--dry` only prints).
 
 ## Migrating from 1.x
 
@@ -220,7 +241,11 @@ and design tokens.
   in `@theme`, with white/black included and corrected charcoal values.
 - **JSON:** the `{ "kromatika": [ { "name", "colors" } ] }` wrapper is gone;
   it's now a flat map of scale → shades.
-- Hex values are unchanged across all formats.
+- **Hex values have changed.** 2.0 retunes every scale onto a shared
+  lightness curve with a fixed hue per scale (see above). Shades are close to
+  their 1.x counterparts, but not identical; the light tints of sky,
+  turquoise and persian green are the most noticeable, since 1.x let them
+  drift toward cyan.
 
 ## License
 

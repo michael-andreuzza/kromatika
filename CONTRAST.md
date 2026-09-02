@@ -14,35 +14,35 @@ black text does.
 | Scale | White text from | Black text up to |
 | --- | --- | --- |
 | Charcoal | 500 | 400 |
-| Metal | 600 | 500 |
-| Haiti | 400 | 300 |
-| Purple | 500 | 400 |
-| Blue Berry | 500 | 400 |
+| Metal | 500 | 400 |
+| Haiti | 500 | 400 |
+| Purple | 500 | 500 |
+| Blue Berry | 600 | 500 |
 | Blue | 600 | 500 |
 | Sky | 600 | 500 |
 | Turquoise | 600 | 500 |
 | Persian Green | 600 | 500 |
 | Pastel Green | 600 | 500 |
 | Grass | 600 | 500 |
-| Carrot | 600 | 600 |
-| Orange | 500 | 500 |
+| Carrot | 600 | 500 |
+| Orange | 500 | 400 |
 | Red | 500 | 400 |
 | Raspberry | 500 | 400 |
-| Fuchsia | 500 | 500 |
+| Fuchsia | 500 | 400 |
 
 ## Charcoal
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
 | 50 | `#f5f5f7` | 1.09 | 19.29 ✓ | black text |
-| 100 | `#e5e5e8` | 1.26 | 16.70 ✓ | black text |
-| 200 | `#c2c2c6` | 1.78 | 11.83 ✓ | black text |
-| 300 | `#a0a0a2` | 2.61 | 8.04 ✓ | black text |
-| 400 | `#7d7d80` | 4.10 ◐ | 5.12 ✓ | black text |
-| 500 | `#5c5c5e` | 6.67 ✓ | 3.15 ◐ | white text |
-| 600 | `#404041` | 10.36 ✓ | 2.03 | white text |
-| 700 | `#292929` | 14.55 ✓ | 1.44 | white text |
-| 800 | `#1a1a1a` | 17.40 ✓ | 1.21 | white text |
+| 100 | `#e4e4e7` | 1.27 | 16.55 ✓ | black text |
+| 200 | `#cacace` | 1.63 | 12.85 ✓ | black text |
+| 300 | `#aaaaac` | 2.32 | 9.05 ✓ | black text |
+| 400 | `#89898c` | 3.49 ◐ | 6.02 ✓ | black text |
+| 500 | `#69696b` | 5.48 ✓ | 3.83 ◐ | white text |
+| 600 | `#4d4d4e` | 8.44 ✓ | 2.49 | white text |
+| 700 | `#353535` | 12.27 ✓ | 1.71 | white text |
+| 800 | `#222222` | 15.91 ✓ | 1.32 | white text |
 | 900 | `#141414` | 18.42 ✓ | 1.14 | white text |
 
 ## Metal
@@ -50,224 +50,224 @@ black text does.
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
 | 50 | `#f4f5f7` | 1.09 | 19.25 ✓ | black text |
-| 100 | `#e4e6eb` | 1.25 | 16.82 ✓ | black text |
-| 200 | `#caced9` | 1.57 | 13.34 ✓ | black text |
-| 300 | `#b0b5c5` | 2.05 | 10.26 ✓ | black text |
-| 400 | `#969cac` | 2.75 | 7.65 ✓ | black text |
-| 500 | `#7c8292` | 3.84 ◐ | 5.47 ✓ | black text |
-| 600 | `#616678` | 5.71 ✓ | 3.68 ◐ | white text |
-| 700 | `#4b4f5c` | 8.16 ✓ | 2.57 | white text |
-| 800 | `#353841` | 11.71 ✓ | 1.79 | white text |
-| 900 | `#1f2129` | 16.06 ✓ | 1.31 | white text |
+| 100 | `#e2e4e9` | 1.27 | 16.51 ✓ | black text |
+| 200 | `#c6cad5` | 1.64 | 12.81 ✓ | black text |
+| 300 | `#a5aaba` | 2.32 | 9.06 ✓ | black text |
+| 400 | `#838998` | 3.50 ◐ | 6.00 ✓ | black text |
+| 500 | `#636978` | 5.49 ✓ | 3.82 ◐ | white text |
+| 600 | `#484c5d` | 8.51 ✓ | 2.47 | white text |
+| 700 | `#313541` | 12.24 ✓ | 1.72 | white text |
+| 800 | `#1f212a` | 16.04 ✓ | 1.31 | white text |
+| 900 | `#12131b` | 18.51 ✓ | 1.13 | white text |
 
 ## Haiti
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#f4f2f8` | 1.11 | 18.90 ✓ | black text |
-| 100 | `#eae7f2` | 1.22 | 17.21 ✓ | black text |
-| 200 | `#cdcad9` | 1.61 | 13.05 ✓ | black text |
-| 300 | `#a7a3b3` | 2.46 | 8.53 ✓ | black text |
-| 400 | `#757281` | 4.69 ✓ | 4.48 ◐ | white text |
-| 500 | `#58536e` | 7.30 ✓ | 2.88 | white text |
-| 600 | `#3f395c` | 10.76 ✓ | 1.95 | white text |
-| 700 | `#29244a` | 14.53 ✓ | 1.45 | white text |
-| 800 | `#1a153d` | 17.23 ✓ | 1.22 | white text |
-| 900 | `#151131` | 18.16 ✓ | 1.16 | white text |
+| 50 | `#f5f4fa` | 1.09 | 19.20 ✓ | black text |
+| 100 | `#e4e3ee` | 1.27 | 16.52 ✓ | black text |
+| 200 | `#cac9d8` | 1.63 | 12.86 ✓ | black text |
+| 300 | `#aaa9b9` | 2.31 | 9.08 ✓ | black text |
+| 400 | `#888797` | 3.52 ◐ | 5.96 ✓ | black text |
+| 500 | `#686581` | 5.57 ✓ | 3.77 ◐ | white text |
+| 600 | `#4c476c` | 8.66 ✓ | 2.43 | white text |
+| 700 | `#352f56` | 12.41 ✓ | 1.69 | white text |
+| 800 | `#221942` | 16.33 ✓ | 1.29 | white text |
+| 900 | `#140d2d` | 18.66 ✓ | 1.13 | white text |
 
 ## Purple
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#e6e1fe` | 1.27 | 16.57 ✓ | black text |
-| 100 | `#cec4fd` | 1.62 | 12.94 ✓ | black text |
-| 200 | `#b3a6f9` | 2.16 | 9.74 ✓ | black text |
-| 300 | `#9c8ef4` | 2.77 | 7.59 ✓ | black text |
-| 400 | `#7a69ee` | 4.13 ◐ | 5.08 ✓ | black text |
-| 500 | `#5b4ccc` | 6.27 ✓ | 3.35 ◐ | white text |
-| 600 | `#4034ab` | 9.14 ✓ | 2.30 | white text |
-| 700 | `#2a218a` | 12.48 ✓ | 1.68 | white text |
-| 800 | `#1b1472` | 15.11 ✓ | 1.39 | white text |
-| 900 | `#15105b` | 16.71 ✓ | 1.26 | white text |
+| 50 | `#eff0ff` | 1.13 | 18.58 ✓ | black text |
+| 100 | `#dcdeff` | 1.32 | 15.94 ✓ | black text |
+| 200 | `#c2c5ff` | 1.65 | 12.72 ✓ | black text |
+| 300 | `#a5a6ff` | 2.21 | 9.50 ✓ | black text |
+| 400 | `#8782ff` | 3.15 ◐ | 6.67 ✓ | black text |
+| 500 | `#6e63e5` | 4.59 ✓ | 4.58 ✓ | white text |
+| 600 | `#5649c2` | 6.71 ✓ | 3.13 ◐ | white text |
+| 700 | `#42349f` | 9.44 ✓ | 2.22 | white text |
+| 800 | `#342585` | 12.00 ✓ | 1.75 | white text |
+| 900 | `#291d69` | 14.25 ✓ | 1.47 | white text |
 
 ## Blue Berry
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#dfe8ff` | 1.23 | 17.12 ✓ | black text |
-| 100 | `#bfd0ff` | 1.53 | 13.68 ✓ | black text |
-| 200 | `#9fb7ff` | 1.96 | 10.69 ✓ | black text |
-| 300 | `#87a3ff` | 2.41 | 8.71 ✓ | black text |
-| 400 | `#5f81ff` | 3.46 ◐ | 6.07 ✓ | black text |
-| 500 | `#4561db` | 5.27 ✓ | 3.99 ◐ | white text |
-| 600 | `#2f46b7` | 7.83 ✓ | 2.68 | white text |
-| 700 | `#1e2f93` | 11.15 ✓ | 1.88 | white text |
-| 800 | `#121f7a` | 13.97 ✓ | 1.50 | white text |
-| 900 | `#0e1862` | 15.84 ✓ | 1.33 | white text |
+| 50 | `#ecf2ff` | 1.12 | 18.71 ✓ | black text |
+| 100 | `#d5e1ff` | 1.31 | 16.04 ✓ | black text |
+| 200 | `#b5c9ff` | 1.65 | 12.76 ✓ | black text |
+| 300 | `#91adff` | 2.18 | 9.63 ✓ | black text |
+| 400 | `#6a8cff` | 3.08 ◐ | 6.81 ✓ | black text |
+| 500 | `#4e6de8` | 4.49 ◐ | 4.68 ✓ | black text |
+| 600 | `#3952c4` | 6.61 ✓ | 3.18 ◐ | white text |
+| 700 | `#283da1` | 9.24 ✓ | 2.27 | white text |
+| 800 | `#1d2d88` | 11.78 ✓ | 1.78 | white text |
+| 900 | `#16236d` | 14.04 ✓ | 1.50 | white text |
 
 ## Blue
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#e3f0fe` | 1.16 | 18.16 ✓ | black text |
-| 100 | `#bbddfd` | 1.41 | 14.87 ✓ | black text |
-| 200 | `#8ec9fc` | 1.76 | 11.91 ✓ | black text |
-| 300 | `#61b5fb` | 2.21 | 9.51 ✓ | black text |
-| 400 | `#3da5fa` | 2.64 | 7.96 ✓ | black text |
-| 500 | `#1d7ef8` | 3.89 ◐ | 5.39 ✓ | black text |
-| 600 | `#176ada` | 5.11 ✓ | 4.11 ◐ | white text |
-| 700 | `#1356bc` | 6.81 ✓ | 3.08 ◐ | white text |
-| 800 | `#0f439e` | 9.06 ✓ | 2.32 | white text |
-| 900 | `#0a3380` | 11.68 ✓ | 1.80 | white text |
+| 50 | `#e9f3ff` | 1.12 | 18.73 ✓ | black text |
+| 100 | `#cee3ff` | 1.31 | 16.06 ✓ | black text |
+| 200 | `#a7ceff` | 1.63 | 12.92 ✓ | black text |
+| 300 | `#79b4ff` | 2.15 | 9.79 ✓ | black text |
+| 400 | `#4b96f3` | 3.02 ◐ | 6.96 ✓ | black text |
+| 500 | `#0078e7` | 4.34 ◐ | 4.84 ✓ | black text |
+| 600 | `#005eb8` | 6.38 ✓ | 3.29 ◐ | white text |
+| 700 | `#004991` | 8.89 ✓ | 2.36 | white text |
+| 800 | `#003974` | 11.43 ✓ | 1.84 | white text |
+| 900 | `#002d5d` | 13.69 ✓ | 1.53 | white text |
 
 ## Sky
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#cefdfe` | 1.10 | 19.11 ✓ | black text |
-| 100 | `#9df4fe` | 1.25 | 16.81 ✓ | black text |
-| 200 | `#6ce5fe` | 1.47 | 14.28 ✓ | black text |
-| 300 | `#47d2fe` | 1.76 | 11.92 ✓ | black text |
-| 400 | `#0bb4fe` | 2.34 | 8.97 ✓ | black text |
-| 500 | `#088cda` | 3.64 ◐ | 5.77 ✓ | black text |
-| 600 | `#0569b6` | 5.67 ✓ | 3.70 ◐ | white text |
-| 700 | `#034a93` | 8.73 ✓ | 2.40 | white text |
-| 800 | `#023579` | 11.75 ✓ | 1.79 | white text |
-| 900 | `#022a5f` | 14.01 ✓ | 1.50 | white text |
+| 50 | `#e5f4ff` | 1.12 | 18.72 ✓ | black text |
+| 100 | `#c4e7ff` | 1.29 | 16.22 ✓ | black text |
+| 200 | `#92d3ff` | 1.62 | 12.98 ✓ | black text |
+| 300 | `#54bcfb` | 2.11 | 9.96 ✓ | black text |
+| 400 | `#00a0e6` | 2.93 | 7.17 ✓ | black text |
+| 500 | `#0083be` | 4.21 ◐ | 4.99 ✓ | black text |
+| 600 | `#006897` | 6.13 ✓ | 3.43 ◐ | white text |
+| 700 | `#005076` | 8.72 ✓ | 2.41 | white text |
+| 800 | `#003f5e` | 11.21 ✓ | 1.87 | white text |
+| 900 | `#00324b` | 13.48 ✓ | 1.56 | white text |
 
 ## Turquoise
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#ccfdf3` | 1.11 | 18.91 ✓ | black text |
-| 100 | `#9afbef` | 1.21 | 17.42 ✓ | black text |
-| 200 | `#67f5ef` | 1.32 | 15.88 ✓ | black text |
-| 300 | `#41e6ec` | 1.53 | 13.75 ✓ | black text |
-| 400 | `#08c7e0` | 2.05 | 10.26 ✓ | black text |
-| 500 | `#059cc0` | 3.22 ◐ | 6.52 ✓ | black text |
-| 600 | `#0475a1` | 5.17 ✓ | 4.06 ◐ | white text |
-| 700 | `#025481` | 8.12 ✓ | 2.59 | white text |
-| 800 | `#013d6b` | 11.16 ✓ | 1.88 | white text |
-| 900 | `#013156` | 13.33 ✓ | 1.57 | white text |
+| 50 | `#dcf7ff` | 1.12 | 18.79 ✓ | black text |
+| 100 | `#adedff` | 1.29 | 16.33 ✓ | black text |
+| 200 | `#59defe` | 1.58 | 13.30 ✓ | black text |
+| 300 | `#20c5e6` | 2.06 | 10.19 ✓ | black text |
+| 400 | `#00a7c4` | 2.87 | 7.32 ✓ | black text |
+| 500 | `#0089a2` | 4.12 ◐ | 5.10 ✓ | black text |
+| 600 | `#006c80` | 6.08 ✓ | 3.46 ◐ | white text |
+| 700 | `#005464` | 8.56 ✓ | 2.45 | white text |
+| 800 | `#00424f` | 11.10 ✓ | 1.89 | white text |
+| 900 | `#00343f` | 13.44 ✓ | 1.56 | white text |
 
 ## Persian Green
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#cafae4` | 1.15 | 18.31 ✓ | black text |
-| 100 | `#97f5d2` | 1.29 | 16.31 ✓ | black text |
-| 200 | `#5fe2be` | 1.60 | 13.11 ✓ | black text |
-| 300 | `#37c6ab` | 2.14 | 9.83 ✓ | black text |
-| 400 | `#06a192` | 3.22 ◐ | 6.52 ✓ | black text |
-| 500 | `#048a89` | 4.20 ◐ | 5.00 ✓ | black text |
-| 600 | `#036a73` | 6.34 ✓ | 3.31 ◐ | white text |
-| 700 | `#014d5d` | 9.46 ✓ | 2.22 | white text |
-| 800 | `#01384d` | 12.54 ✓ | 1.67 | white text |
-| 900 | `#012c3c` | 14.72 ✓ | 1.43 | white text |
+| 50 | `#c6fffa` | 1.10 | 19.09 ✓ | black text |
+| 100 | `#89f8f0` | 1.25 | 16.75 ✓ | black text |
+| 200 | `#4be5dc` | 1.55 | 13.54 ✓ | black text |
+| 300 | `#27cac2` | 2.04 | 10.31 ✓ | black text |
+| 400 | `#17aba4` | 2.84 | 7.40 ✓ | black text |
+| 500 | `#108c87` | 4.10 ◐ | 5.12 ✓ | black text |
+| 600 | `#0f6f6a` | 6.00 ✓ | 3.50 ◐ | white text |
+| 700 | `#055652` | 8.54 ✓ | 2.46 | white text |
+| 800 | `#004441` | 11.03 ✓ | 1.90 | white text |
+| 900 | `#003633` | 13.33 ✓ | 1.58 | white text |
 
 ## Pastel Green
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#d2fbd0` | 1.14 | 18.45 ✓ | black text |
-| 100 | `#a3f7a9` | 1.28 | 16.43 ✓ | black text |
-| 200 | `#72e985` | 1.53 | 13.71 ✓ | black text |
-| 300 | `#4dd470` | 1.91 | 10.97 ✓ | black text |
-| 400 | `#1cb854` | 2.61 | 8.03 ✓ | black text |
-| 500 | `#149e53` | 3.47 ◐ | 6.05 ✓ | black text |
-| 600 | `#0e8450` | 4.74 ✓ | 4.44 ◐ | white text |
-| 700 | `#086a49` | 6.63 ✓ | 3.17 ◐ | white text |
-| 800 | `#055843` | 8.46 ✓ | 2.48 | white text |
-| 900 | `#044837` | 10.57 ✓ | 1.99 | white text |
+| 50 | `#d2ffde` | 1.10 | 19.10 ✓ | black text |
+| 100 | `#98fbb6` | 1.25 | 16.81 ✓ | black text |
+| 200 | `#5eeb92` | 1.52 | 13.77 ✓ | black text |
+| 300 | `#31d176` | 2.00 | 10.51 ✓ | black text |
+| 400 | `#00b25e` | 2.79 | 7.53 ✓ | black text |
+| 500 | `#00934c` | 3.98 ◐ | 5.28 ✓ | black text |
+| 600 | `#04743b` | 5.89 ✓ | 3.57 ◐ | white text |
+| 700 | `#0f592f` | 8.43 ✓ | 2.49 | white text |
+| 800 | `#0f4625` | 10.92 ✓ | 1.92 | white text |
+| 900 | `#09371c` | 13.33 ✓ | 1.57 | white text |
 
 ## Grass
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#e3fad6` | 1.11 | 18.91 ✓ | black text |
-| 100 | `#c2f6ae` | 1.23 | 17.09 ✓ | black text |
-| 200 | `#93e380` | 1.55 | 13.54 ✓ | black text |
-| 300 | `#66c95b` | 2.09 | 10.07 ✓ | black text |
-| 400 | `#2fa52d` | 3.21 ◐ | 6.54 ✓ | black text |
-| 500 | `#208d28` | 4.28 ◐ | 4.90 ✓ | black text |
-| 600 | `#167625` | 5.75 ✓ | 3.65 ◐ | white text |
-| 700 | `#0e5f21` | 7.84 ✓ | 2.68 | white text |
-| 800 | `#084f1f` | 9.77 ✓ | 2.15 | white text |
-| 900 | `#074119` | 11.80 ✓ | 1.78 | white text |
+| 50 | `#defcdb` | 1.10 | 19.05 ✓ | black text |
+| 100 | `#b6f4b2` | 1.27 | 16.57 ✓ | black text |
+| 200 | `#8be486` | 1.55 | 13.54 ✓ | black text |
+| 300 | `#65cc61` | 2.03 | 10.36 ✓ | black text |
+| 400 | `#3cb13b` | 2.78 | 7.54 ✓ | black text |
+| 500 | `#2b922b` | 4.00 ◐ | 5.25 ✓ | black text |
+| 600 | `#1e741e` | 5.88 ✓ | 3.57 ◐ | white text |
+| 700 | `#165a16` | 8.37 ✓ | 2.51 | white text |
+| 800 | `#104710` | 10.88 ✓ | 1.93 | white text |
+| 900 | `#0a380a` | 13.27 ✓ | 1.58 | white text |
 
 ## Carrot
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#fff3d5` | 1.10 | 19.03 ✓ | black text |
-| 100 | `#ffe4ab` | 1.24 | 16.94 ✓ | black text |
-| 200 | `#ffd181` | 1.43 | 14.69 ✓ | black text |
-| 300 | `#ffbe62` | 1.64 | 12.79 ✓ | black text |
-| 400 | `#ffa02e` | 2.03 | 10.32 ✓ | black text |
-| 500 | `#db7e21` | 2.99 | 7.02 ✓ | black text |
-| 600 | `#b75f17` | 4.50 ✓ | 4.66 ✓ | black text |
-| 700 | `#93450e` | 6.78 ✓ | 3.10 ◐ | white text |
-| 800 | `#7a3108` | 9.25 ✓ | 2.27 | white text |
-| 900 | `#602706` | 11.73 ✓ | 1.79 | white text |
+| 50 | `#ffeee1` | 1.13 | 18.57 ✓ | black text |
+| 100 | `#ffd9b9` | 1.32 | 15.88 ✓ | black text |
+| 200 | `#ffba7d` | 1.67 | 12.57 ✓ | black text |
+| 300 | `#ec9d51` | 2.21 | 9.51 ✓ | black text |
+| 400 | `#d67c00` | 3.11 ◐ | 6.74 ✓ | black text |
+| 500 | `#b16500` | 4.44 ◐ | 4.73 ✓ | black text |
+| 600 | `#8c4f00` | 6.49 ✓ | 3.23 ◐ | white text |
+| 700 | `#6e3d00` | 9.01 ✓ | 2.33 | white text |
+| 800 | `#572f00` | 11.59 ✓ | 1.81 | white text |
+| 900 | `#462400` | 13.88 ✓ | 1.51 | white text |
 
 ## Orange
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#ffead2` | 1.17 | 17.95 ✓ | black text |
-| 100 | `#ffcea6` | 1.44 | 14.63 ✓ | black text |
-| 200 | `#ffad7a` | 1.82 | 11.51 ✓ | black text |
-| 300 | `#ff8c59` | 2.30 | 9.15 ✓ | black text |
-| 400 | `#ff5722` | 3.16 ◐ | 6.64 ✓ | black text |
-| 500 | `#db3918` | 4.55 ✓ | 4.61 ✓ | black text |
-| 600 | `#b72111` | 6.48 ✓ | 3.24 ◐ | white text |
-| 700 | `#930e0a` | 9.10 ✓ | 2.31 | white text |
-| 800 | `#7a060b` | 11.30 ✓ | 1.86 | white text |
-| 900 | `#610509` | 13.69 ✓ | 1.53 | white text |
+| 50 | `#ffede8` | 1.13 | 18.53 ✓ | black text |
+| 100 | `#ffd7cb` | 1.33 | 15.83 ✓ | black text |
+| 200 | `#ffb6a1` | 1.69 | 12.46 ✓ | black text |
+| 300 | `#ff8d6c` | 2.26 | 9.28 ✓ | black text |
+| 400 | `#fc541c` | 3.27 ◐ | 6.42 ✓ | black text |
+| 500 | `#d43e00` | 4.68 ✓ | 4.49 ◐ | white text |
+| 600 | `#a92f00` | 6.79 ✓ | 3.09 ◐ | white text |
+| 700 | `#852300` | 9.38 ✓ | 2.24 | white text |
+| 800 | `#6a1a00` | 11.93 ✓ | 1.76 | white text |
+| 900 | `#551300` | 14.19 ✓ | 1.48 | white text |
 
 ## Red
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#fee3d4` | 1.22 | 17.15 ✓ | black text |
-| 100 | `#fdc0ab` | 1.58 | 13.30 ✓ | black text |
-| 200 | `#fb9580` | 2.16 | 9.71 ✓ | black text |
-| 300 | `#f86d60` | 2.86 | 7.35 ✓ | black text |
-| 400 | `#f42d2d` | 3.99 ◐ | 5.26 ✓ | black text |
-| 500 | `#d12030` | 5.30 ✓ | 3.96 ◐ | white text |
-| 600 | `#af1631` | 7.04 ✓ | 2.98 | white text |
-| 700 | `#8d0e2f` | 9.39 ✓ | 2.24 | white text |
-| 800 | `#75082e` | 11.47 ✓ | 1.83 | white text |
-| 900 | `#5f0726` | 13.59 ✓ | 1.54 | white text |
+| 50 | `#ffedec` | 1.13 | 18.58 ✓ | black text |
+| 100 | `#ffd6d3` | 1.33 | 15.81 ✓ | black text |
+| 200 | `#ffb4b0` | 1.69 | 12.41 ✓ | black text |
+| 300 | `#ff8a86` | 2.27 | 9.23 ✓ | black text |
+| 400 | `#ff4952` | 3.32 ◐ | 6.33 ✓ | black text |
+| 500 | `#da2c3a` | 4.77 ✓ | 4.40 ◐ | white text |
+| 600 | `#b11a2a` | 6.88 ✓ | 3.05 ◐ | white text |
+| 700 | `#8c0d1d` | 9.59 ✓ | 2.19 | white text |
+| 800 | `#720214` | 12.11 ✓ | 1.73 | white text |
+| 900 | `#5c020e` | 14.28 ✓ | 1.47 | white text |
 
 ## Raspberry
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#fed9d5` | 1.30 | 16.10 ✓ | black text |
-| 100 | `#feacad` | 1.79 | 11.72 ✓ | black text |
-| 200 | `#fd838f` | 2.38 | 8.82 ✓ | black text |
-| 300 | `#fb6382` | 2.91 | 7.21 ✓ | black text |
-| 400 | `#f9316d` | 3.69 ◐ | 5.69 ✓ | black text |
-| 500 | `#d6236a` | 4.87 ✓ | 4.31 ◐ | white text |
-| 600 | `#b31865` | 6.49 ✓ | 3.24 ◐ | white text |
-| 700 | `#900f5c` | 8.72 ✓ | 2.41 | white text |
-| 800 | `#770955` | 10.74 ✓ | 1.95 | white text |
-| 900 | `#5f0743` | 13.14 ✓ | 1.60 | white text |
+| 50 | `#ffecf0` | 1.13 | 18.51 ✓ | black text |
+| 100 | `#ffd4de` | 1.34 | 15.72 ✓ | black text |
+| 200 | `#ffb1c5` | 1.70 | 12.35 ✓ | black text |
+| 300 | `#ff84a8` | 2.30 | 9.12 ✓ | black text |
+| 400 | `#fe3d88` | 3.37 ◐ | 6.24 ✓ | black text |
+| 500 | `#d6256f` | 4.82 ✓ | 4.35 ◐ | white text |
+| 600 | `#af0956` | 7.01 ✓ | 3.00 ◐ | white text |
+| 700 | `#8b0042` | 9.65 ✓ | 2.18 | white text |
+| 800 | `#6f0034` | 12.17 ✓ | 1.73 | white text |
+| 900 | `#590028` | 14.43 ✓ | 1.46 | white text |
 
 ## Fuchsia
 
 | Shade | Hex | vs white | vs black | Use |
 | --- | --- | --- | --- | --- |
-| 50 | `#feccec` | 1.39 | 15.06 ✓ | black text |
-| 100 | `#fe99e3` | 1.93 | 10.88 ✓ | black text |
-| 200 | `#fe66e3` | 2.55 | 8.22 ✓ | black text |
-| 300 | `#fe40ec` | 2.93 | 7.16 ✓ | black text |
-| 400 | `#fe01fc` | 3.17 ◐ | 6.62 ✓ | black text |
-| 500 | `#c900da` | 4.67 ✓ | 4.50 ✓ | white text |
-| 600 | `#9800b6` | 6.98 ✓ | 3.01 ◐ | white text |
-| 700 | `#6e0093` | 10.08 ✓ | 2.08 | white text |
-| 800 | `#500079` | 12.99 ✓ | 1.62 | white text |
-| 900 | `#410061` | 15.03 ✓ | 1.40 | white text |
+| 50 | `#feeaff` | 1.14 | 18.43 ✓ | black text |
+| 100 | `#fdd0ff` | 1.34 | 15.64 ✓ | black text |
+| 200 | `#faa9ff` | 1.72 | 12.18 ✓ | black text |
+| 300 | `#f574ff` | 2.38 | 8.82 ✓ | black text |
+| 400 | `#eb00fc` | 3.54 ◐ | 5.94 ✓ | black text |
+| 500 | `#c200d0` | 4.99 ✓ | 4.20 ◐ | white text |
+| 600 | `#9a00a6` | 7.18 ✓ | 2.92 | white text |
+| 700 | `#790082` | 9.83 ✓ | 2.14 | white text |
+| 800 | `#610068` | 12.29 ✓ | 1.71 | white text |
+| 900 | `#4d0053` | 14.58 ✓ | 1.44 | white text |
 
 ✓ passes AA for normal text (≥ 4.5:1) · ◐ passes AA for large text and UI (≥ 3:1)
