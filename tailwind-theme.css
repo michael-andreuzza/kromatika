@@ -1,0 +1,17 @@
+/* Generated from colors.json by build.mjs — do not edit by hand. */
+/* Tailwind CSS v4: @import "kromatika/tailwind-theme.css" after tailwindcss.
+   Pulls in theme.css and maps its tokens to utility names. */
+@import "./theme.css";
+
+@theme inline {
+  --color-background: var(--kr-background);
+  --color-foreground: var(--kr-foreground);
+  --color-muted: var(--kr-muted);
+  --color-muted-foreground: var(--kr-muted-foreground);
+  --color-border: var(--kr-border);
+  --color-accent: var(--kr-accent);
+  --color-accent-foreground: var(--kr-accent-foreground);
+  --color-success: var(--kr-success);
+  --color-warning: var(--kr-warning);
+  --color-danger: var(--kr-danger);
+}

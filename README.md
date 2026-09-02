@@ -33,6 +33,11 @@ body {
 Variables are `--kr-{scale}-{shade}`, e.g. `--kr-blue-berry-500`,
 `--kr-persian-green-700`, plus `--kr-white` and `--kr-black`.
 
+`colors.oklch.css` has the same variables as `oklch()` values with hex
+fallbacks. On wide-gamut (P3) displays the vivid shades of fuchsia, orange
+and the greens render with more chroma than sRGB can hold; everywhere else
+it looks identical to `colors.css`.
+
 ### Semantic theme (light + dark)
 
 If you want a palette that already works rather than 160 colors to choose
@@ -54,6 +59,21 @@ Tokens: `background`, `foreground`, `muted`, `muted-foreground`, `border`,
 `accent`, `accent-foreground`, `success`, `warning`, `danger`. Force a mode
 with `<html data-theme="dark">` (or `"light"`). Every pairing passes WCAG AA
 for normal text.
+
+With Tailwind v4, `tailwind-theme.css` exposes the same tokens as utilities
+in the naming you already know from shadcn/ui:
+
+```css
+@import "tailwindcss";
+@import "kromatika/tailwind-theme.css";
+```
+
+```html
+<div class="bg-background text-foreground">
+  <div class="border border-border bg-muted text-muted-foreground">…</div>
+  <button class="bg-accent text-accent-foreground">…</button>
+</div>
+```
 
 ### Text color for any shade
 
@@ -128,16 +148,29 @@ included.
 
 ### JSON
 
+`tokens.json` (W3C Design Tokens, hex) is the JSON to consume:
+
 ```json
 {
-  "white": "#ffffff",
-  "black": "#000000",
-  "charcoal": { "50": "#f5f5f7", "100": "#e4e4e7", "…": "…", "900": "#141414" },
-  "blue berry": { "50": "#ecf2ff", "…": "…" }
+  "kromatika": {
+    "charcoal": {
+      "50": { "$type": "color", "$value": "#f5f5f7" },
+      "…": "…"
+    }
+  }
 }
 ```
 
-`colors.json` is the source of truth; every other file is generated from it.
+`colors.json` is the source of truth the other files are generated from. It
+stores each shade as `oklch(L C H)` rather than hex, because hex is lossy
+and rounding through it would drift the palette over time:
+
+```json
+{
+  "charcoal": { "500": "oklch(0.520 0.0032 286.3)", "…": "…" },
+  "blue berry": { "500": "oklch(0.580 0.1888 269.3)", "…": "…" }
+}
+```
 
 ### SCSS
 
@@ -222,25 +255,28 @@ passes from 500 or 600 on every scale).
 
 ## Customizing
 
-Edit `colors.json`, then run `npm run build` to regenerate every other
-format. `build.mjs` has no dependencies; it converts hex to OKLCH for the
-Tailwind v4 theme, computes the contrast data, and emits the semantic theme
-and design tokens.
+Edit `colors.json` (hex or `oklch()` values both work), run `npm run tune`
+to snap the new shades onto the shared curves, then `npm run build` to
+regenerate every other format. Neither script has dependencies.
 
-If you add or change a scale, `node tune.mjs` snaps it onto the shared
-curves described above (it rewrites `colors.json`; `--dry` only prints).
+`npm test` checks that every generated file is fresh, every shade sits on
+its curve, `on` agrees with `contrast`, and every semantic theme pairing
+passes AA. It runs in CI and before publishing.
 
 ## Migrating from 1.x
 
 - **JavaScript:** scales were arrays indexed `0`–`9`; they are now objects
-  keyed by shade. `colors.charcoal[5]` → `colors.charcoal[500]`.
+  keyed by shade. `colors.charcoal[5]` → `colors.charcoal[500]`. CommonJS
+  exports `{ colors, on, contrast }`: `require("kromatika").charcoal` →
+  `require("kromatika").colors.charcoal`.
 - **Tailwind:** multi-word scales are kebab-case, matching Tailwind's own
   conventions. `bg-blueBerry-500` → `bg-blue-berry-500`,
   `persianGreen` → `persian-green`, `pastelGreen` → `pastel-green`.
 - **Tailwind v4:** the `tailwind-css-v4` file is now `tailwind.css`, wrapped
   in `@theme`, with white/black included and corrected charcoal values.
-- **JSON:** the `{ "kromatika": [ { "name", "colors" } ] }` wrapper is gone;
-  it's now a flat map of scale → shades.
+- **JSON:** the `{ "kromatika": [ { "name", "colors" } ] }` wrapper is gone.
+  `colors.json` is now a flat map of scale → shades in `oklch()`; for hex in
+  JSON use `tokens.json`.
 - **Hex values have changed.** 2.0 snaps every scale onto a shared lightness
   curve (see above). Hues are the same as 1.x, so everything still looks like
   Kromatika, but shades are slightly lighter or darker than before; the

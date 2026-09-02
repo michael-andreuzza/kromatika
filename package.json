@@ -13,12 +13,14 @@
     },
     "./colors.json": "./colors.json",
     "./colors.css": "./colors.css",
+    "./colors.oklch.css": "./colors.oklch.css",
     "./colors.scss": "./colors.scss",
     "./colors.less": "./colors.less",
     "./colors.styl": "./colors.styl",
     "./colors.yml": "./colors.yml",
     "./tailwind.css": "./tailwind.css",
     "./tailwind.config.js": "./tailwind.config.js",
+    "./tailwind-theme.css": "./tailwind-theme.css",
     "./theme.css": "./theme.css",
     "./tokens.json": "./tokens.json"
   },
@@ -28,20 +30,25 @@
     "index.d.ts",
     "colors.json",
     "colors.css",
+    "colors.oklch.css",
     "colors.scss",
     "colors.less",
     "colors.styl",
     "colors.yml",
     "tailwind.css",
     "tailwind.config.js",
+    "tailwind-theme.css",
     "theme.css",
     "tokens.json",
-    "CONTRAST.md"
+    "CONTRAST.md",
+    "CHANGELOG.md"
   ],
   "sideEffects": false,
   "scripts": {
     "build": "node build.mjs",
-    "prepublishOnly": "node build.mjs"
+    "tune": "node tune.mjs",
+    "test": "node test.mjs",
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "colors",

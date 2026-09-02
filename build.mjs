@@ -1,55 +1,31 @@
 // Generates every distributed format from colors.json, the single source
 // of truth. Run with `npm run build` after editing colors.json.
+//
+// colors.json holds oklch() values; hex is derived here (chroma clipped into
+// sRGB, lightness and hue exact). `generate()` is also imported by test.mjs
+// to check that the committed files are fresh.
 import { readFileSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { STEPS, parseColor, formatOklch, oklchToHex, contrast } from "./color.mjs";
+
+export function generate() {
 
 const src = JSON.parse(readFileSync(new URL("./colors.json", import.meta.url), "utf8"));
-const STEPS = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"];
 
 const kebab = (name) => name.toLowerCase().replace(/\s+/g, "-");
 const camel = (name) => kebab(name).replace(/-(\w)/g, (_, c) => c.toUpperCase());
 const label = (name) => name.replace(/\b\w/g, (c) => c.toUpperCase());
 
-// Flatten into [{ name, kebab, camel, shades: [[step, hex], ...] | hex }]
+// Flatten into [{ name, kebab, camel, single: hex|null, shades: [[step, hex, oklch]] }]
 const groups = Object.entries(src).map(([name, value]) => ({
   name: label(name),
   kebab: kebab(name),
   camel: camel(name),
-  single: typeof value === "string" ? value.toLowerCase() : null,
-  shades: typeof value === "string" ? [] : STEPS.map((s) => [s, value[s].toLowerCase()]),
+  single: typeof value === "string" ? oklchToHex(parseColor(value)) : null,
+  shades: typeof value === "string"
+    ? []
+    : STEPS.map((s) => { const c = parseColor(value[s]); return [s, oklchToHex(c), c]; }),
 }));
-
-/* ---------------------------------------------------------------- */
-/* sRGB hex -> OKLCH, for the Tailwind v4 theme                       */
-/* ---------------------------------------------------------------- */
-
-function hexToOklch(hex) {
-  const lin = (c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
-  const [r, g, b] = [1, 3, 5].map((i) => lin(parseInt(hex.slice(i, i + 2), 16) / 255));
-  const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
-  const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
-  const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
-  const L = 0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s;
-  const A = 1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s;
-  const B = 0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s;
-  const C = Math.hypot(A, B);
-  const H = C < 0.0005 ? 0 : ((Math.atan2(B, A) * 180) / Math.PI + 360) % 360;
-  return `oklch(${L.toFixed(3)} ${C.toFixed(3)} ${H.toFixed(1)})`;
-}
-
-/* ---------------------------------------------------------------- */
-/* WCAG 2 contrast: which text color works on each shade              */
-/* ---------------------------------------------------------------- */
-
-function luminance(hex) {
-  const lin = (c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
-  const [r, g, b] = [1, 3, 5].map((i) => lin(parseInt(hex.slice(i, i + 2), 16) / 255));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
-
-function contrast(a, b) {
-  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
-  return (hi + 0.05) / (lo + 0.05);
-}
 
 const WHITE = "#ffffff";
 const BLACK = "#000000";
@@ -170,8 +146,7 @@ const jsBody =
   `const on = {\n${onObject(2)}\n};\n\n` +
   `const contrast = {\n${contrastObject(2)}\n};\n`;
 
-const cjs = header("//") + jsBody +
-  `\nmodule.exports = colors;\nmodule.exports.colors = colors;\nmodule.exports.on = on;\nmodule.exports.contrast = contrast;\nmodule.exports.default = colors;\n`;
+const cjs = header("//") + jsBody + `\nmodule.exports = { colors, on, contrast };\n`;
 const esm = header("//") + jsBody.replace(/^const /gm, "export const ") + `\nexport default colors;\n`;
 
 let dts = header("//");
@@ -255,6 +230,15 @@ const themeCss =
   `@media (prefers-color-scheme: dark) {\n  :root:not([data-theme="light"]) {\n${block(semantic.dark, 4)}\n  }\n}\n\n` +
   `:root[data-theme="dark"] {\n${block(semantic.dark, 2)}\n}\n`;
 
+/* tailwind-theme.css: the semantic tokens as Tailwind v4 utilities
+   (bg-background, text-muted-foreground, border-border, ...) */
+const twTheme =
+  header("/*").replace("\n", " */\n") +
+  `/* Tailwind CSS v4: @import "kromatika/tailwind-theme.css" after tailwindcss.\n   Pulls in theme.css and maps its tokens to utility names. */\n` +
+  `@import "./theme.css";\n\n@theme inline {\n` +
+  Object.keys(semantic.light).map((k) => `  --color-${k}: var(--kr-${k});`).join("\n") +
+  `\n}\n`;
+
 const twConfig =
   header("//") +
   `// Tailwind CSS v3: spread into your theme, or require it in tailwind.config.js.\n` +
@@ -267,14 +251,30 @@ twCss += `/* Tailwind CSS v4: @import "kromatika/tailwind.css" after tailwindcss
 for (const g of groups) {
   twCss += `  /* ${g.name} */\n`;
   if (g.single) twCss += `  --color-${g.kebab}: ${g.single};\n`;
-  for (const [step, hex] of g.shades) twCss += `  --color-${g.kebab}-${step}: ${hexToOklch(hex)};\n`;
+  for (const [step, , c] of g.shades) twCss += `  --color-${g.kebab}-${step}: ${formatOklch(c)};\n`;
 }
 twCss += `}\n`;
 
+/* colors.oklch.css: the source values, unclipped. On wide-gamut (P3)
+   displays the vivid shades render with more chroma than the sRGB hex;
+   the hex is provided as a fallback for browsers without oklch(). */
+let oklchCss = header("/*").replace("\n", " */\n");
+oklchCss += `/* Same variables as colors.css, in oklch() with sRGB hex fallbacks. */\n:root {\n`;
+for (const g of groups) {
+  oklchCss += `  /* ${g.name} */\n`;
+  if (g.single) oklchCss += `  --kr-${g.kebab}: ${g.single};\n`;
+  for (const [step, hex, c] of g.shades) {
+    oklchCss += `  --kr-${g.kebab}-${step}: ${hex};\n`;
+    oklchCss += `  --kr-${g.kebab}-${step}: ${formatOklch(c)};\n`;
+  }
+}
+oklchCss += onVars + `}\n`;
+
 /* ---------------------------------------------------------------- */
 
-const files = {
+return {
   "colors.css": css,
+  "colors.oklch.css": oklchCss,
   "colors.scss": scss,
   "colors.less": less,
   "colors.styl": styl,
@@ -284,12 +284,17 @@ const files = {
   "index.d.ts": dts,
   "tailwind.config.js": twConfig,
   "tailwind.css": twCss,
+  "tailwind-theme.css": twTheme,
   "tokens.json": tokensJson,
   "theme.css": themeCss,
   "CONTRAST.md": contrastMd,
 };
 
-for (const [name, content] of Object.entries(files)) {
-  writeFileSync(new URL(`./${name}`, import.meta.url), content);
-  console.log("wrote", name);
+} // generate
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  for (const [name, content] of Object.entries(generate())) {
+    writeFileSync(new URL(`./${name}`, import.meta.url), content);
+    console.log("wrote", name);
+  }
 }

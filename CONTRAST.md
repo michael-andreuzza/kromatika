@@ -113,7 +113,7 @@ black text does.
 | 100 | `#cae5ff` | 1.30 | 16.16 ✓ | black text |
 | 200 | `#9cd1ff` | 1.62 | 12.98 ✓ | black text |
 | 300 | `#64b8ff` | 2.13 | 9.84 ✓ | black text |
-| 400 | `#319bef` | 2.97 | 7.07 ✓ | black text |
+| 400 | `#309bef` | 2.97 | 7.06 ✓ | black text |
 | 500 | `#0d75ee` | 4.38 ◐ | 4.80 ✓ | black text |
 | 600 | `#005ac5` | 6.42 ✓ | 3.27 ◐ | white text |
 | 700 | `#0043a1` | 9.06 ✓ | 2.32 | white text |
@@ -128,10 +128,10 @@ black text does.
 | 100 | `#9bf2fc` | 1.27 | 16.50 ✓ | black text |
 | 200 | `#64def7` | 1.57 | 13.33 ✓ | black text |
 | 300 | `#31c2ee` | 2.08 | 10.08 ✓ | black text |
-| 400 | `#00a0e3` | 2.94 | 7.14 ✓ | black text |
+| 400 | `#00a0e4` | 2.94 | 7.15 ✓ | black text |
 | 500 | `#0080c9` | 4.26 ◐ | 4.93 ✓ | black text |
 | 600 | `#0062ac` | 6.28 ✓ | 3.34 ◐ | white text |
-| 700 | `#014891` | 8.99 ✓ | 2.34 | white text |
+| 700 | `#004891` | 8.99 ✓ | 2.34 | white text |
 | 800 | `#03367b` | 11.55 ✓ | 1.82 | white text |
 | 900 | `#032b60` | 13.83 ✓ | 1.52 | white text |
 
@@ -142,7 +142,7 @@ black text does.
 | 50 | `#cdfef4` | 1.10 | 19.08 ✓ | black text |
 | 100 | `#95f6ea` | 1.26 | 16.65 ✓ | black text |
 | 200 | `#53e4de` | 1.55 | 13.52 ✓ | black text |
-| 300 | `#00c9cf` | 2.05 | 10.26 ✓ | black text |
+| 300 | `#00c9d0` | 2.05 | 10.27 ✓ | black text |
 | 400 | `#00a8bd` | 2.86 | 7.34 ✓ | black text |
 | 500 | `#0088a8` | 4.13 ◐ | 5.09 ✓ | black text |
 | 600 | `#006991` | 6.12 ✓ | 3.43 ◐ | white text |
@@ -157,10 +157,10 @@ black text does.
 | 50 | `#cfffe9` | 1.10 | 19.13 ✓ | black text |
 | 100 | `#9af8d5` | 1.25 | 16.76 ✓ | black text |
 | 200 | `#63e5c1` | 1.55 | 13.51 ✓ | black text |
-| 300 | `#3ecbaf` | 2.03 | 10.37 ✓ | black text |
+| 300 | `#3ecbb0` | 2.02 | 10.37 ✓ | black text |
 | 400 | `#22ab9c` | 2.85 | 7.37 ✓ | black text |
 | 500 | `#0b8c8b` | 4.09 ◐ | 5.14 ✓ | black text |
-| 600 | `#0b6d76` | 6.06 ✓ | 3.46 ◐ | white text |
+| 600 | `#0c6d76` | 6.06 ✓ | 3.46 ◐ | white text |
 | 700 | `#0c5363` | 8.63 ✓ | 2.43 | white text |
 | 800 | `#0c4055` | 11.17 ✓ | 1.88 | white text |
 | 900 | `#083343` | 13.42 ✓ | 1.56 | white text |
@@ -173,7 +173,7 @@ black text does.
 | 100 | `#a5f9ab` | 1.25 | 16.74 ✓ | black text |
 | 200 | `#72e985` | 1.53 | 13.71 ✓ | black text |
 | 300 | `#48d06c` | 2.00 | 10.51 ✓ | black text |
-| 400 | `#0eb34f` | 2.77 | 7.58 ✓ | black text |
+| 400 | `#0db34f` | 2.77 | 7.58 ✓ | black text |
 | 500 | `#00934a` | 3.98 ◐ | 5.27 ✓ | black text |
 | 600 | `#007344` | 5.94 ✓ | 3.54 ◐ | white text |
 | 700 | `#00593c` | 8.42 ✓ | 2.49 | white text |
@@ -191,7 +191,7 @@ black text does.
 | 400 | `#3db13a` | 2.78 | 7.55 ✓ | black text |
 | 500 | `#27922e` | 4.01 ◐ | 5.24 ✓ | black text |
 | 600 | `#137423` | 5.92 ✓ | 3.55 ◐ | white text |
-| 700 | `#055b1c` | 8.33 ✓ | 2.52 | white text |
+| 700 | `#065b1c` | 8.33 ✓ | 2.52 | white text |
 | 800 | `#004819` | 10.82 ✓ | 1.94 | white text |
 | 900 | `#003912` | 13.17 ✓ | 1.59 | white text |
 
@@ -222,8 +222,8 @@ black text does.
 | 500 | `#d83614` | 4.71 ✓ | 4.46 ◐ | white text |
 | 600 | `#b21a0a` | 6.90 ✓ | 3.05 ◐ | white text |
 | 700 | `#8f0505` | 9.58 ✓ | 2.19 | white text |
-| 800 | `#730007` | 12.12 ✓ | 1.73 | white text |
-| 900 | `#5d0005` | 14.31 ✓ | 1.47 | white text |
+| 800 | `#730006` | 12.13 ✓ | 1.73 | white text |
+| 900 | `#5d0006` | 14.30 ✓ | 1.47 | white text |
 
 ## Red
 
