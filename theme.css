@@ -1,0 +1,44 @@
+/* Generated from colors.json by build.mjs — do not edit by hand. */
+/* Semantic tokens on top of Kromatika. Follows the system theme; set
+   data-theme="light" or "dark" on <html> to force one. */
+:root {
+  color-scheme: light dark;
+  --kr-background: #ffffff;
+  --kr-foreground: #141414;
+  --kr-muted: #f5f5f7;
+  --kr-muted-foreground: #5c5c5e;
+  --kr-border: #e5e5e8;
+  --kr-accent: #176ada;
+  --kr-accent-foreground: #ffffff;
+  --kr-success: #149e53;
+  --kr-warning: #ffa02e;
+  --kr-danger: #d12030;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --kr-background: #141414;
+    --kr-foreground: #f5f5f7;
+    --kr-muted: #1a1a1a;
+    --kr-muted-foreground: #a0a0a2;
+    --kr-border: #292929;
+    --kr-accent: #3da5fa;
+    --kr-accent-foreground: #141414;
+    --kr-success: #4dd470;
+    --kr-warning: #ffbe62;
+    --kr-danger: #f86d60;
+  }
+}
+
+:root[data-theme="dark"] {
+  --kr-background: #141414;
+  --kr-foreground: #f5f5f7;
+  --kr-muted: #1a1a1a;
+  --kr-muted-foreground: #a0a0a2;
+  --kr-border: #292929;
+  --kr-accent: #3da5fa;
+  --kr-accent-foreground: #141414;
+  --kr-success: #4dd470;
+  --kr-warning: #ffbe62;
+  --kr-danger: #f86d60;
+}

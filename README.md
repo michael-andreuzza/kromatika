@@ -5,7 +5,8 @@
 An elegant color palette for user interfaces: 16 scales of 10 shades each
 (50–900), plus white and black. Ships in every format you're likely to
 need — CSS variables, SCSS, LESS, Stylus, YAML, JSON, JavaScript (CJS + ESM
-with types), and Tailwind CSS v3 and v4.
+with types), Tailwind CSS v3 and v4, and W3C Design Tokens — with WCAG
+contrast data for every shade and a ready-made semantic light/dark theme.
 
 ## Install
 
@@ -31,6 +32,55 @@ body {
 
 Variables are `--kr-{scale}-{shade}`, e.g. `--kr-blue-berry-500`,
 `--kr-persian-green-700`, plus `--kr-white` and `--kr-black`.
+
+### Semantic theme (light + dark)
+
+If you want a palette that already works rather than 160 colors to choose
+from, `theme.css` maps a small set of semantic tokens onto Kromatika and
+flips them with the system theme:
+
+```css
+@import "kromatika/theme.css";
+
+body {
+  background: var(--kr-background);
+  color: var(--kr-foreground);
+}
+.card { border: 1px solid var(--kr-border); background: var(--kr-muted); }
+.button { background: var(--kr-accent); color: var(--kr-accent-foreground); }
+```
+
+Tokens: `background`, `foreground`, `muted`, `muted-foreground`, `border`,
+`accent`, `accent-foreground`, `success`, `warning`, `danger`. Force a mode
+with `<html data-theme="dark">` (or `"light"`). Every pairing passes WCAG AA
+for normal text.
+
+### Text color for any shade
+
+Which text color goes on `blue-berry-400`? Kromatika answers for every shade:
+
+```css
+.badge {
+  background: var(--kr-blue-berry-400);
+  color: var(--kr-on-blue-berry-400); /* black here — white only passes from 500 */
+}
+```
+
+```js
+import { colors, on, contrast } from "kromatika";
+
+on.blueBerry[400];        // "#000000"
+contrast.blueBerry[400];  // { white: 3.46, black: 6.07 }
+```
+
+The full table, with AA thresholds per scale, is in
+[CONTRAST.md](./CONTRAST.md).
+
+### Figma, Tokens Studio, Style Dictionary
+
+`tokens.json` follows the W3C Design Tokens format, so it imports directly
+into Figma Variables (via the native import or Tokens Studio) and into
+Style Dictionary and similar pipelines.
 
 ### Tailwind CSS v4
 
@@ -155,8 +205,9 @@ kr-charcoal:
 ## Customizing
 
 Edit `colors.json`, then run `npm run build` to regenerate every other
-format. `build.mjs` has no dependencies; it also converts hex to OKLCH for
-the Tailwind v4 theme.
+format. `build.mjs` has no dependencies; it converts hex to OKLCH for the
+Tailwind v4 theme, computes the contrast data, and emits the semantic theme
+and design tokens.
 
 ## Migrating from 1.x
 

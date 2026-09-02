@@ -1,7 +1,7 @@
 {
   "name": "kromatika",
   "version": "2.0.0",
-  "description": "An elegant color palette for user interfaces — 16 scales in CSS, SCSS, LESS, Stylus, YAML, JSON, JS, and Tailwind.",
+  "description": "An elegant color palette for user interfaces — 16 scales with contrast data, semantic light/dark tokens, and every format: CSS, SCSS, LESS, Stylus, YAML, JSON, JS, Tailwind, Design Tokens.",
   "main": "index.js",
   "module": "index.mjs",
   "types": "index.d.ts",
@@ -18,7 +18,9 @@
     "./colors.styl": "./colors.styl",
     "./colors.yml": "./colors.yml",
     "./tailwind.css": "./tailwind.css",
-    "./tailwind.config.js": "./tailwind.config.js"
+    "./tailwind.config.js": "./tailwind.config.js",
+    "./theme.css": "./theme.css",
+    "./tokens.json": "./tokens.json"
   },
   "files": [
     "index.js",
@@ -31,7 +33,10 @@
     "colors.styl",
     "colors.yml",
     "tailwind.css",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "theme.css",
+    "tokens.json",
+    "CONTRAST.md"
   ],
   "sideEffects": false,
   "scripts": {

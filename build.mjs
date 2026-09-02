@@ -37,6 +37,40 @@ function hexToOklch(hex) {
 }
 
 /* ---------------------------------------------------------------- */
+/* WCAG 2 contrast: which text color works on each shade              */
+/* ---------------------------------------------------------------- */
+
+function luminance(hex) {
+  const lin = (c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const [r, g, b] = [1, 3, 5].map((i) => lin(parseInt(hex.slice(i, i + 2), 16) / 255));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function contrast(a, b) {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+const WHITE = "#ffffff";
+const BLACK = "#000000";
+
+// For every shade: contrast vs white and black, and the better text color.
+const contrastData = {};
+for (const g of groups) {
+  if (g.single) continue;
+  contrastData[g.kebab] = {};
+  for (const [step, hex] of g.shades) {
+    const white = contrast(hex, WHITE);
+    const black = contrast(hex, BLACK);
+    contrastData[g.kebab][step] = {
+      white: +white.toFixed(2),
+      black: +black.toFixed(2),
+      on: white >= black ? WHITE : BLACK,
+    };
+  }
+}
+
+/* ---------------------------------------------------------------- */
 /* Emitters                                                           */
 /* ---------------------------------------------------------------- */
 
@@ -52,6 +86,11 @@ function lines(fmtSingle, fmtShade, fmtComment = null) {
   return out.join("\n") + "\n";
 }
 
+let onVars = "\n  /* Text color with the best WCAG contrast on each shade */\n";
+for (const [scale, shades] of Object.entries(contrastData)) {
+  for (const [step, d] of Object.entries(shades)) onVars += `  --kr-on-${scale}-${step}: ${d.on};\n`;
+}
+
 const css =
   header("/*") .replace("\n", " */\n") +
   ":root {\n" +
@@ -60,6 +99,7 @@ const css =
     (n, s, h) => `  --kr-${n}-${s}: ${h};`,
     (name) => `  /* ${name} */`
   ) +
+  onVars +
   "}\n";
 
 const scss = header("//") + lines(
@@ -104,15 +144,116 @@ function jsObject(indent, keyFn) {
   return out.join("\n");
 }
 
-const cjs = header("//") + `const colors = {\n${jsObject(2, (g) => g.camel)}\n};\n\nmodule.exports = colors;\nmodule.exports.colors = colors;\nmodule.exports.default = colors;\n`;
-const esm = header("//") + `export const colors = {\n${jsObject(2, (g) => g.camel)}\n};\n\nexport default colors;\n`;
+// `on`: best text color per shade. `contrast`: the ratios behind it.
+function onObject(indent) {
+  const pad = " ".repeat(indent);
+  return groups.filter((g) => !g.single).map((g) =>
+    `${pad}${g.camel}: {\n` +
+    g.shades.map(([s]) => `${pad}  ${s}: "${contrastData[g.kebab][s].on}",`).join("\n") +
+    `\n${pad}},`
+  ).join("\n");
+}
+function contrastObject(indent) {
+  const pad = " ".repeat(indent);
+  return groups.filter((g) => !g.single).map((g) =>
+    `${pad}${g.camel}: {\n` +
+    g.shades.map(([s]) => {
+      const d = contrastData[g.kebab][s];
+      return `${pad}  ${s}: { white: ${d.white}, black: ${d.black} },`;
+    }).join("\n") +
+    `\n${pad}},`
+  ).join("\n");
+}
+
+const jsBody =
+  `const colors = {\n${jsObject(2, (g) => g.camel)}\n};\n\n` +
+  `const on = {\n${onObject(2)}\n};\n\n` +
+  `const contrast = {\n${contrastObject(2)}\n};\n`;
+
+const cjs = header("//") + jsBody +
+  `\nmodule.exports = colors;\nmodule.exports.colors = colors;\nmodule.exports.on = on;\nmodule.exports.contrast = contrast;\nmodule.exports.default = colors;\n`;
+const esm = header("//") + jsBody.replace(/^const /gm, "export const ") + `\nexport default colors;\n`;
 
 let dts = header("//");
 dts += `export type Shade = "50" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";\n`;
-dts += `export type Scale = Record<Shade, string>;\n\n`;
+dts += `export type Scale = Record<Shade, string>;\n`;
+dts += `export type ScaleName = ${groups.filter((g) => !g.single).map((g) => `"${g.camel}"`).join(" | ")};\n\n`;
 dts += `export interface Colors {\n`;
 for (const g of groups) dts += `  ${g.camel}: ${g.single ? "string" : "Scale"};\n`;
-dts += `}\n\nexport const colors: Colors;\nexport default colors;\n`;
+dts += `}\n\n`;
+dts += `/** Best text color (white or black) for each shade, by WCAG 2 contrast. */\n`;
+dts += `export type On = Record<ScaleName, Scale>;\n`;
+dts += `/** WCAG 2 contrast ratios of each shade against white and black. */\n`;
+dts += `export type Contrast = Record<ScaleName, Record<Shade, { white: number; black: number }>>;\n\n`;
+dts += `export const colors: Colors;\nexport const on: On;\nexport const contrast: Contrast;\nexport default colors;\n`;
+
+/* W3C Design Tokens (Figma Variables, Tokens Studio, Style Dictionary) */
+const tokens = { kromatika: {} };
+for (const g of groups) {
+  if (g.single) tokens.kromatika[g.kebab] = { $type: "color", $value: g.single };
+  else {
+    tokens.kromatika[g.kebab] = {};
+    for (const [step, hex] of g.shades) tokens.kromatika[g.kebab][step] = { $type: "color", $value: hex };
+  }
+}
+const tokensJson = JSON.stringify(tokens, null, 2) + "\n";
+
+/* CONTRAST.md: full table, plus a quick-reference of AA thresholds */
+const AA = 4.5;
+let contrastMd = `# Contrast\n\nWCAG 2 contrast ratios for every shade against white and black text, and the\ntext color Kromatika recommends (\`--kr-on-*\`, \`on.*\` in JS). AA for normal\ntext is 4.5:1; AA for large text and UI components is 3:1.\n\nGenerated from colors.json by build.mjs.\n\n## Quick reference\n\nThe first shade where white text passes AA (4.5:1), and the last shade where\nblack text does.\n\n| Scale | White text from | Black text up to |\n| --- | --- | --- |\n`;
+for (const g of groups) {
+  if (g.single) continue;
+  const d = contrastData[g.kebab];
+  const firstWhite = g.shades.find(([s]) => d[s].white >= AA)?.[0] ?? "—";
+  const lastBlack = [...g.shades].reverse().find(([s]) => d[s].black >= AA)?.[0] ?? "—";
+  contrastMd += `| ${g.name} | ${firstWhite} | ${lastBlack} |\n`;
+}
+for (const g of groups) {
+  if (g.single) continue;
+  contrastMd += `\n## ${g.name}\n\n| Shade | Hex | vs white | vs black | Use |\n| --- | --- | --- | --- | --- |\n`;
+  for (const [step, hex] of g.shades) {
+    const d = contrastData[g.kebab][step];
+    const mark = (v) => `${v.toFixed(2)}${v >= AA ? " ✓" : v >= 3 ? " ◐" : ""}`;
+    contrastMd += `| ${step} | \`${hex}\` | ${mark(d.white)} | ${mark(d.black)} | ${d.on === WHITE ? "white" : "black"} text |\n`;
+  }
+}
+contrastMd += `\n✓ passes AA for normal text (≥ 4.5:1) · ◐ passes AA for large text and UI (≥ 3:1)\n`;
+
+/* theme.css: a small semantic layer that works in light and dark */
+const pick = (scale, step) => groups.find((g) => g.kebab === scale).shades.find(([s]) => s === step)[1];
+const semantic = {
+  light: {
+    background: WHITE,
+    foreground: pick("charcoal", "900"),
+    muted: pick("charcoal", "50"),
+    "muted-foreground": pick("charcoal", "500"),
+    border: pick("charcoal", "100"),
+    accent: pick("blue", "600"), // first blue shade where white text passes AA
+    "accent-foreground": WHITE,
+    success: pick("pastel-green", "500"),
+    warning: pick("carrot", "400"),
+    danger: pick("red", "500"),
+  },
+  dark: {
+    background: pick("charcoal", "900"),
+    foreground: pick("charcoal", "50"),
+    muted: pick("charcoal", "800"),
+    "muted-foreground": pick("charcoal", "300"),
+    border: pick("charcoal", "700"),
+    accent: pick("blue", "400"),
+    "accent-foreground": pick("charcoal", "900"),
+    success: pick("pastel-green", "300"),
+    warning: pick("carrot", "300"),
+    danger: pick("red", "300"),
+  },
+};
+const block = (vars, indent) => Object.entries(vars).map(([k, v]) => `${" ".repeat(indent)}--kr-${k}: ${v};`).join("\n");
+const themeCss =
+  header("/*").replace("\n", " */\n") +
+  `/* Semantic tokens on top of Kromatika. Follows the system theme; set\n   data-theme="light" or "dark" on <html> to force one. */\n` +
+  `:root {\n  color-scheme: light dark;\n${block(semantic.light, 2)}\n}\n\n` +
+  `@media (prefers-color-scheme: dark) {\n  :root:not([data-theme="light"]) {\n${block(semantic.dark, 4)}\n  }\n}\n\n` +
+  `:root[data-theme="dark"] {\n${block(semantic.dark, 2)}\n}\n`;
 
 const twConfig =
   header("//") +
@@ -143,6 +284,9 @@ const files = {
   "index.d.ts": dts,
   "tailwind.config.js": twConfig,
   "tailwind.css": twCss,
+  "tokens.json": tokensJson,
+  "theme.css": themeCss,
+  "CONTRAST.md": contrastMd,
 };
 
 for (const [name, content] of Object.entries(files)) {
