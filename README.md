@@ -1,180 +1,176 @@
 ![Kromatika colors](https://github.com/michael-andreuzza/kromatika/blob/main/images/kromatika.png?raw=true)
 
-# Kromatika Color Library
+# Kromatika
 
-Kromatika is a comprehensive color library that provides a wide range of color palettes for use in your web projects. This library includes colors organized by categories, making it easy to maintain a consistent color scheme throughout your application.
+An elegant color palette for user interfaces: 16 scales of 10 shades each
+(50–900), plus white and black. Ships in every format you're likely to
+need — CSS variables, SCSS, LESS, Stylus, YAML, JSON, JavaScript (CJS + ESM
+with types), and Tailwind CSS v3 and v4.
 
-[Official site](https://michaelandreuzza.com/work/kromatika/)
-
-## Installation
-
-To use the Kromatika color library in your project, follow these steps:
-
-1. **Clone the Repository**:
-
-```bash
-git clone https://github.com/michael-andreuzza/kromatika.git
-cd kromatika
-```
-
-2. **Install Dependencies**
-   To get started with Kromatika, you need to install the package and any necessary dependencies. If you are using npm, you can install Kromatika with:
-
-NPM
+## Install
 
 ```bash
 npm install kromatika
 ```
 
-Yarn
-
-```bash
-yarn add kromatika
-```
+Or grab the file you need straight from this repo — every format is a
+single, dependency-free file.
 
 ## Usage
 
-### Importing Colors
-
-You can import the colors into your JavaScript, JSON, SCSS and CSS files as needed.
-
-#### JavaScript
-
-To use the colors in your JavaScript files, you can import the `colors` object from `index.js`:
-
-```js
-const colors = require('./index.js');
-// EXample usage:
-console.log(colors.black); // Outputs the hex color code for black
-
-#### JSON
-
-To use the colors in your JSON files, you can import the `colors` object from `colors.json`:
-
-```
-
-```json
-{
-  "metal": [
-    "#F3F4F7",
-    "#E2E4EB",
-    "#CCD0DC",
-    "#B3BACB",
-    "#9BA4BA",
-    "#828DA9",
-    "#626E8E",
-    "#49526A",
-    "#303646",
-    "#191C24"
-  ]
-  // Add more color categories as needed
-}
-```
-
-#### YAML
-
-To use the colors in your YAML files, you can import the `colors.yml` file:
-
-```yaml
-metal:
-  - "#F3F4F7"
-  - "#E2E4EB"
-  - "#CCD0DC"
-  - "#B3BACB"
-  - "#9BA4BA"
-  - "#828DA9"
-  - "#626E8E"
-  - "#49526A"
-  - "#303646"
-  - "#191C24"
-# Add more color categories as needed
-```
-
-#### SCSS
-
-To use the colors in your SCSS files, you can import the `colors.scss` file:
-
-```scss
-@import "kromatika/colors.scss";
-// EXample usage:
-body {
-  background-color: var(--kr-charcoal-50);
-  color: var(--white);
-}
-```
-
-#### LESS
-
-To use the colors in your LESS files, you can import the colors.less file:
-
-```less
-@import "~kromatika/colors.less";
-// Example usage:
-body {
-  background-color: @black-50;
-  color: @white;
-}
-```
-
-#### Stylus
-
-To use the colors in your Stylus files, you can import the colors.styl file:
-
-```stylus
-@import "~kromatika/colors.styl"
-// Example usage:
-body
-  background-color: $black-50
-  color: $white
-```
-
-#### CSS
+### CSS variables
 
 ```css
 @import "kromatika/colors.css";
-// Example usage:
+
 body {
-  background-color: var(--kr-charcoal-50); /* Using a black shade */
+  background: var(--kr-charcoal-50);
+  color: var(--kr-charcoal-900);
 }
 ```
 
-### Available Colors
+Variables are `--kr-{scale}-{shade}`, e.g. `--kr-blue-berry-500`,
+`--kr-persian-green-700`, plus `--kr-white` and `--kr-black`.
 
-The color library includes the following categories:
+### Tailwind CSS v4
 
-- **Charcoal**: A range of shades of charcoal.
-- **Metal Shades**: A range of metallic colors.
-- **Haiti Shades**: Soft, muted colors inspired by the Haitian palette.
-- **Purple Shades**: A variety of purple tones.
-- **Blue Berry Shades**: Fresh and vibrant blue shades.
-- **Blue Shades**: Rich and deep blue colors.
-- **Sky Shades**: Light and airy sky colors.
-- **Turquoise Shades**: Bright and refreshing turquoise tones.
-- **Persian Green Shades**: Elegant green shades.
-- **Pastel Green Shades**: Soft and pastel green colors.
-- **Grass Shades**: Lively green shades.
-- **Carrot Shades**: Warm and inviting orange shades.
-- **Orange Shades**: Bright and cheerful orange tones.
-- **Red Shades**: Bold and vibrant red colors.
-- **Raspberry Shades**: Sweet and rich raspberry tones.
-- **Fuchsia Shades**: Bright and lively fuchsia colors.
+```css
+@import "tailwindcss";
+@import "kromatika/tailwind.css";
+```
 
-### Customization
+Adds `charcoal`, `metal`, `haiti`, `purple`, `blue-berry`, `blue`, `sky`,
+`turquoise`, `persian-green`, `pastel-green`, `grass`, `carrot`, `orange`,
+`red`, `raspberry`, and `fuchsia` to your theme, in OKLCH:
 
-You can easily customize the colors by modifying the values in the `colors.json` file, or directly in the `index.js`, `colors.scss`, and `colors.css` files. This flexibility allows you to tailor the color palette to fit your project's branding and design requirements.
+```html
+<button class="bg-blue-berry-500 text-white hover:bg-blue-berry-600">…</button>
+```
 
-### License
+### Tailwind CSS v3
 
-This project is licensed under the MIT License.
+```js
+// tailwind.config.js
+const kromatika = require("kromatika/tailwind.config.js");
 
-### Contributing
+module.exports = {
+  theme: {
+    extend: {
+      colors: kromatika.theme.extend.colors,
+    },
+  },
+};
+```
 
-Contributions are welcome! If you have suggestions for improvements or new color palettes, feel free to open an issue or submit a pull request.
+### JavaScript / TypeScript
 
-### Acknowledgments
+```js
+import { colors } from "kromatika";        // ESM
+const { colors } = require("kromatika");   // CommonJS
 
-Thank you for using Kromatika! We hope this color library enhances your project and streamlines your design process.
+colors.charcoal[500];     // "#5c5c5e"
+colors.blueBerry[300];    // "#87a3ff"
+colors.white;             // "#ffffff"
+```
 
-### Author
+Scales are camelCase objects keyed by shade (`50`…`900`). Types are
+included.
 
-[Michael Andreuzza](https://michaelandreuzza.com)
+### JSON
+
+```json
+{
+  "white": "#ffffff",
+  "black": "#000000",
+  "charcoal": { "50": "#f5f5f7", "100": "#e5e5e8", "…": "…", "900": "#141414" },
+  "blue berry": { "50": "#dfe8ff", "…": "…" }
+}
+```
+
+`colors.json` is the source of truth; every other file is generated from it.
+
+### SCSS
+
+```scss
+@import "kromatika/colors.scss";
+
+body {
+  background: $kr-charcoal-50;
+  color: $kr-charcoal-900;
+}
+```
+
+### LESS
+
+```less
+@import "kromatika/colors.less";
+
+body {
+  background: @kr-charcoal-50;
+  color: @kr-charcoal-900;
+}
+```
+
+### Stylus
+
+```stylus
+@import "kromatika/colors.styl"
+
+body
+  background $kr-charcoal-50
+  color $kr-charcoal-900
+```
+
+### YAML
+
+```yaml
+kr-charcoal:
+  50: "#f5f5f7"
+  100: "#e5e5e8"
+  # …
+  900: "#141414"
+```
+
+## Scales
+
+| Scale | Character |
+| --- | --- |
+| Charcoal | Neutral grays |
+| Metal | Cool, slightly blue grays |
+| Haiti | Muted indigo-violets |
+| Purple | Violet |
+| Blue berry | Periwinkle blue |
+| Blue | Primary blue |
+| Sky | Cyan-leaning blue |
+| Turquoise | Blue-green |
+| Persian green | Teal |
+| Pastel green | Fresh green |
+| Grass | Yellow-green |
+| Carrot | Amber-orange |
+| Orange | Red-orange |
+| Red | Red |
+| Raspberry | Pink-red |
+| Fuchsia | Magenta |
+
+## Customizing
+
+Edit `colors.json`, then run `npm run build` to regenerate every other
+format. `build.mjs` has no dependencies; it also converts hex to OKLCH for
+the Tailwind v4 theme.
+
+## Migrating from 1.x
+
+- **JavaScript:** scales were arrays indexed `0`–`9`; they are now objects
+  keyed by shade. `colors.charcoal[5]` → `colors.charcoal[500]`.
+- **Tailwind:** multi-word scales are kebab-case, matching Tailwind's own
+  conventions. `bg-blueBerry-500` → `bg-blue-berry-500`,
+  `persianGreen` → `persian-green`, `pastelGreen` → `pastel-green`.
+- **Tailwind v4:** the `tailwind-css-v4` file is now `tailwind.css`, wrapped
+  in `@theme`, with white/black included and corrected charcoal values.
+- **JSON:** the `{ "kromatika": [ { "name", "colors" } ] }` wrapper is gone;
+  it's now a flat map of scale → shades.
+- Hex values are unchanged across all formats.
+
+## License
+
+MIT — [Michael Andreuzza](https://michaelandreuzza.com)

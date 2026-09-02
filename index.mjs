@@ -1,5 +1,5 @@
 // Generated from colors.json by build.mjs — do not edit by hand.
-const colors = {
+export const colors = {
   white: "#ffffff",
   black: "#000000",
   charcoal: {
@@ -196,6 +196,4 @@ const colors = {
   },
 };
 
-module.exports = colors;
-module.exports.colors = colors;
-module.exports.default = colors;
+export default colors;

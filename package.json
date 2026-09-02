@@ -1,23 +1,58 @@
 {
   "name": "kromatika",
-  "version": "1.0.8",
-  "description": "An elegant color palette for user interfaces",
-
+  "version": "2.0.0",
+  "description": "An elegant color palette for user interfaces — 16 scales in CSS, SCSS, LESS, Stylus, YAML, JSON, JS, and Tailwind.",
   "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./colors.json": "./colors.json",
+    "./colors.css": "./colors.css",
+    "./colors.scss": "./colors.scss",
+    "./colors.less": "./colors.less",
+    "./colors.styl": "./colors.styl",
+    "./colors.yml": "./colors.yml",
+    "./tailwind.css": "./tailwind.css",
+    "./tailwind.config.js": "./tailwind.config.js"
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "colors.json",
+    "colors.css",
+    "colors.scss",
+    "colors.less",
+    "colors.styl",
+    "colors.yml",
+    "tailwind.css",
+    "tailwind.config.js"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "node build.mjs",
+    "prepublishOnly": "node build.mjs"
+  },
   "keywords": [
     "colors",
     "color palette",
-    "design",
+    "design tokens",
+    "tailwind",
+    "oklch",
+    "css variables",
     "user interface"
   ],
-  "author": "Michael Andreuzza",
+  "author": "Michael Andreuzza (https://michaelandreuzza.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/michael-andreuzza/kromatika.git"
-    },
-  "homepage": "https://michaelandreuzza.com/work/kromatika/",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "url": "git+https://github.com/michael-andreuzza/kromatika.git"
+  },
+  "homepage": "https://github.com/michael-andreuzza/kromatika#readme",
+  "bugs": "https://github.com/michael-andreuzza/kromatika/issues"
 }

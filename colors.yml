@@ -1,3 +1,4 @@
+# Generated from colors.json by build.mjs — do not edit by hand.
 kr-white: "#ffffff"
 kr-black: "#000000"
 kr-charcoal:
@@ -12,16 +13,16 @@ kr-charcoal:
   800: "#1a1a1a"
   900: "#141414"
 kr-metal:
- 50: "#F4F5F7"
-  100: "#E4E6EB"
-  200: "#CACED9"
-  300: "#B0B5C5"
-  400: "#969CAC"
-  500: "#7C8292"
+  50: "#f4f5f7"
+  100: "#e4e6eb"
+  200: "#caced9"
+  300: "#b0b5c5"
+  400: "#969cac"
+  500: "#7c8292"
   600: "#616678"
-  700: "#4B4F5C"
+  700: "#4b4f5c"
   800: "#353841"
-  900: "#1F2129"
+  900: "#1f2129"
 kr-haiti:
   50: "#f4f2f8"
   100: "#eae7f2"
